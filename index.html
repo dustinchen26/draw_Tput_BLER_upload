@@ -68,6 +68,14 @@
             var progressLabel = document.getElementById('progressLabel');
             var plot = document.getElementById('plot');
 
+    // Check file size
+    var maxSizeMB = 455;
+    var maxSizeBytes = maxSizeMB * 1024 * 1024; // Convert MB to bytes
+    if (file.size > maxSizeBytes) {
+        alert('檔案容量超過 ' + maxSizeMB + ' MB，不允許上傳。');
+        return; // Stop further execution
+    }
+
             var reader = new FileReader();
 
             reader.onprogress = function (event) {
