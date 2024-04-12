@@ -1,0 +1,10 @@
+寫一個完整html，讓使用者輸入內容到框，解析後畫出一張包含4條曲線的折線圖，分別是DL-BLER, UL-BLER, DL Tpt, UL Tpt
+4條曲線橫軸都是GNB DU Statistics  後面的時間
+
+依序解析底下
+首先，讀取開頭為CELL-ID   CELL-DL-BANDWIDTH這一列，下一列第10和11數字分別是DL-NEWTX和DL-RETX，而DL-BLER=DL-RETX/(DL-NEWTX+DL-RETX)
+
+接著，讀取開頭為CELL-ID   AVG-UL-PRB這一列，下一列第8和9個數字分別是UL-NEWTX和 UL-RETX，而UL-BLER=UL-RETX/(UL-NEWTX+UL-RETX)
+
+再來，讀取開頭為SCH  DL Tpt :後面的數值，DL Tpt是DL Tpt後面的數字，UL Tpt是UL Tpt後面的數字
+在這個時間畫出四條曲線的點DL-BLER, UL-BLER, DL Tpt, UL Tpt，依序直到文件結束
