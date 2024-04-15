@@ -2,7 +2,6 @@
   Copyright © [2023] [Dustin_Chen]. All rights reserved.
   Author: Dustin_Chen
   Email:  Dustin_Chen@compal.com or chuhpsdustin@gmail.com
-
 -->
 
 <!DOCTYPE html>
@@ -55,7 +54,7 @@
                     <div class="progress-label" id="progressLabel">0%</div>
                     <progress id="progress" value="0" max="100"></progress>
                 </div>
-                <div id="plot"></div>
+                <div id="plots"></div>
             </ul>
         </li>
     </ul>
@@ -66,31 +65,22 @@
             var file = input.files[0];
             var progress = document.getElementById('progress');
             var progressLabel = document.getElementById('progressLabel');
-            var plot = document.getElementById('plot');
-
-    // Check file size
-    var maxSizeMB = 455;
-    var maxSizeBytes = maxSizeMB * 1024 * 1024; // Convert MB to bytes
-    if (file.size > maxSizeBytes) {
-        alert('檔案容量超過 ' + maxSizeMB + ' MB，不允許上傳。');
-        return; // Stop further execution
-    }
+            var plots = document.getElementById('plots');
 
             var reader = new FileReader();
+            var CHUNK_SIZE = 455 * 1024 * 1024; // 455MB chunk size
+            var start = 0;
+            var plotIndex = 1;
 
             reader.onprogress = function (event) {
                 if (event.lengthComputable) {
-                    var percentLoaded = Math.round((event.loaded / event.total) * 100);
+                    var percentLoaded = Math.round((start + event.loaded) / file.size * 100);
                     progress.value = percentLoaded;
                     progressLabel.textContent = percentLoaded + '%';
                 }
             };
 
             reader.onload = function (event) {
-                progress.value = 100;
-                progressLabel.textContent = '100%';
-                plot.innerHTML = ''; // Clear previous plot
-
                 var inputData = event.target.result.trim().split('\n');
 
                 // Parsing logic...
@@ -173,13 +163,10 @@
                     }
                 };
 
-
-
-
                 var data = [trace1, trace2, trace3, trace4];
 
                 var layout = {
-                    title: 'total DL-BLER, UL-BLER, DL Tput, UL Tpt Chart',
+                    title: 'total DL-BLER, UL-BLER, DL Tput, UL Tpt Chart ' + plotIndex,
                     xaxis: {
                         title: 'GNB DU Statistics Time',
                         tickangle: -30, // Rotate the x-axis labels by 45 degrees
@@ -210,10 +197,29 @@
                     layout.xaxis.ticktext = time; // Set tick text to time array
                 }
 
-                Plotly.newPlot('plot', data, layout);
+                var plotDiv = document.createElement('div');
+                plotDiv.id = 'plot' + plotIndex;
+                plots.appendChild(plotDiv);
+
+                Plotly.newPlot('plot' + plotIndex, data, layout);
+
+                plotIndex++;
+
+                // Read the next chunk
+                if (start < file.size) {
+                    var nextSlice = file.slice(start, start + CHUNK_SIZE);
+                    reader.readAsText(nextSlice);
+                    start += CHUNK_SIZE;
+                } else {
+                    progress.value = 100;
+                    progressLabel.textContent = '100%';
+                }
             };
 
-            reader.readAsText(file);
+            // Read the first chunk
+            var slice = file.slice(start, start + CHUNK_SIZE);
+            reader.readAsText(slice);
+            start += CHUNK_SIZE;
         }
     </script>
 </body>
