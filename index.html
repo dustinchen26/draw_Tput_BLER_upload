@@ -70,7 +70,6 @@
             var reader = new FileReader();
             var CHUNK_SIZE = 455 * 1024 * 1024; // 455MB chunk size
             var start = 0;
-            var plotIndex = 1;
 
             reader.onprogress = function (event) {
                 if (event.lengthComputable) {
@@ -83,7 +82,7 @@
             reader.onload = function (event) {
                 var inputData = event.target.result.trim().split('\n');
 
-                // Parsing logic...
+                // Initialize arrays to hold all data
                 var time = [];
                 var dlBler = [];
                 var ulBler = [];
@@ -95,7 +94,7 @@
                     var line = inputData[i].trim();
                     // Assuming time is available in the same line
                     if (line.includes("GNB DU Statistics") && line.split(" ").length > 4) {
-                        var timeParts = line.split(" ").slice(5, 9).join(" "); // 提取第5到第9个单词，即时间部分
+                        var timeParts = line.split(" ").slice(5, 9).join(" "); // Extract the time
                         time.push(timeParts);
                     }
                     if (line.startsWith("CELL-ID   CELL-DL-BANDWIDTH")) {
@@ -118,15 +117,15 @@
                     }
                 }
 
-                // Plot the data
+                // Create traces for the chart
                 var trace1 = {
                     x: time,
                     y: dlBler,
                     mode: 'lines+markers',
                     name: 'DL-BLER',
-                    yaxis: 'y1', // Use the left y-axis
+                    yaxis: 'y1',
                     line: {
-                        color: 'blue' // Change DL-BLER line color to blue
+                        color: 'blue'
                     }
                 };
 
@@ -135,9 +134,9 @@
                     y: ulBler,
                     mode: 'lines+markers',
                     name: 'UL-BLER',
-                    yaxis: 'y1', // Use the left y-axis
+                    yaxis: 'y1',
                     line: {
-                        color: 'green' // Change UL-BLER line color to green
+                        color: 'green'
                     }
                 };
 
@@ -146,9 +145,9 @@
                     y: dlTpt,
                     mode: 'lines+markers',
                     name: 'DL Tpt',
-                    yaxis: 'y2', // Use the right y-axis
+                    yaxis: 'y2',
                     line: {
-                        color: 'orange' // Change DL Tpt line color to orange
+                        color: 'orange'
                     }
                 };
 
@@ -157,55 +156,56 @@
                     y: ulTpt,
                     mode: 'lines+markers',
                     name: 'UL Tpt',
-                    yaxis: 'y2', // Use the right y-axis
+                    yaxis: 'y2',
                     line: {
-                        color: 'red' // Change UL Tpt line color to red
+                        color: 'red'
                     }
                 };
 
                 var data = [trace1, trace2, trace3, trace4];
 
+                // Layout for the single combined plot
                 var layout = {
-                    title: 'total DL-BLER, UL-BLER, DL Tput, UL Tpt Chart ' + plotIndex,
+                    title: 'Total DL-BLER, UL-BLER, DL Tput, UL Tpt Chart',
                     xaxis: {
                         title: 'GNB DU Statistics Time',
-                        tickangle: -30, // Rotate the x-axis labels by 45 degrees
-                        automargin: true // Automatically adjust the margin to prevent label clipping
+                        tickangle: -30, 
+                        automargin: true
                     },
                     yaxis: {
-                        title: 'BLER', // Label for the left y-axis
-                        side: 'left', // Position the left y-axis on the left side
-                        range: [0, Math.max(...dlBler, ...ulBler) * 1.2] // Adjust the range of left y-axis
+                        title: 'BLER',
+                        side: 'left',
+                        range: [0, Math.max(...dlBler, ...ulBler) * 1.2]
                     },
                     yaxis2: {
-                        title: 'Tpt', // Label for the right y-axis
-                        side: 'right', // Position the right y-axis on the right side
-                        overlaying: 'y', // Overlay the right y-axis on the left y-axis
-                        range: [0, Math.max(...dlTpt, ...ulTpt) * 1.2] // Adjust the range of right y-axis
+                        title: 'Tpt',
+                        side: 'right',
+                        overlaying: 'y',
+                        range: [0, Math.max(...dlTpt, ...ulTpt) * 1.2]
                     },
-                    width: 1400, // Specify the width of the plot canvas
-                    height: 600 // Specify the height of the plot canvas
+                    width: 1400,
+                    height: 600
                 };
 
                 // Dynamically set x-axis tick format based on data length
                 if (time.length > 30) {
-                    layout.xaxis.tickmode = 'auto'; // Use auto tick mode for x-axis
-                    layout.xaxis.nticks = 30; // Limit the number of ticks to 10
+                    layout.xaxis.tickmode = 'auto';
+                    layout.xaxis.nticks = 30;
                 } else {
-                    layout.xaxis.tickmode = 'array'; // Use array tick mode for x-axis
-                    layout.xaxis.tickvals = time; // Set tick values to time array
-                    layout.xaxis.ticktext = time; // Set tick text to time array
+                    layout.xaxis.tickmode = 'array';
+                    layout.xaxis.tickvals = time;
+                    layout.xaxis.ticktext = time;
                 }
 
+                // Create a single div for the plot
                 var plotDiv = document.createElement('div');
-                plotDiv.id = 'plot' + plotIndex;
+                plotDiv.id = 'plot';
                 plots.appendChild(plotDiv);
 
-                Plotly.newPlot('plot' + plotIndex, data, layout);
+                // Create the plot with the combined data
+                Plotly.newPlot('plot', data, layout);
 
-                plotIndex++;
-
-                // Read the next chunk
+                // Read the next chunk if any
                 if (start < file.size) {
                     var nextSlice = file.slice(start, start + CHUNK_SIZE);
                     reader.readAsText(nextSlice);
