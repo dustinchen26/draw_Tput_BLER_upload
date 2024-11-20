@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload and Draw Total DL-BLER, UL-BLER, DL Tpt, UL Tpt</title>
+    <title>Upload and draw total DL-Tpt, DL-bler, UL-Tpt, UL-bler</title>
     <!-- Include Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
@@ -30,11 +30,21 @@
         .file-status {
             margin-top: 10px;
         }
+
+        .plot {
+            margin-bottom: 10px;
+        }
+
+        #plots {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     </style>
 </head>
 
 <body>
-    <h2>Upload and Draw Total DL-BLER, UL-BLER, DL Tpt, UL Tpt</h2>
+    <h2>Upload and draw total DL-Tpt, DL-bler, UL-Tpt, UL-bler</h2>
 
     <p style="margin: 0;">Author: Dustin_Chen, email: <a href="mailto:Dustin_Chen@compal.com"
             style="line-height: 1;">Dustin_Chen@compal.com</a> or <a href="mailto:chuhpsdustin@gmail.com"
@@ -99,10 +109,11 @@
                             continue;
                         }
 
-                        // Extract time
+                        // Extract time (remove the year part)
                         if (line.includes("GNB DU Statistics") && line.split(" ").length > 4) {
                             var timeParts = line.split(" ").slice(5, 9).join(" ");
-                            time.push(timeParts);
+                            var timeFormatted = timeParts.replace(/\b2024\b/, ''); // Remove the year
+                            time.push(timeFormatted);
                         }
                         // Extract DL-BLER
                         else if (line.startsWith("CELL-ID   CELL-DL-BANDWIDTH")) {
@@ -184,7 +195,7 @@
                         if (currentFileIndex < files.length) {
                             parseFile(files[currentFileIndex]);
                         } else {
-                            drawChart();
+                            drawCharts();
                         }
                     }
                 };
@@ -192,80 +203,72 @@
                 loadNextChunk(); // Start loading the first chunk
             }
 
-            // Function to draw the chart after reading all data
-            function drawChart() {
-                var trace1 = {
-                    x: time,
-                    y: dlBler,
-                    mode: 'lines+markers',
-                    name: 'DL-BLER',
-                    yaxis: 'y1',
-                    line: {
-                        color: 'blue'
-                    }
-                };
+            // Function to draw the charts after reading all data
+            function drawCharts() {
+                // Create individual div elements for each plot
+                plots.innerHTML = ''; // Clear previous content
 
-                var trace2 = {
-                    x: time,
-                    y: ulBler,
-                    mode: 'lines+markers',
-                    name: 'UL-BLER',
-                    yaxis: 'y1',
-                    line: {
-                        color: 'green'
-                    }
-                };
+                var chartHeight = 200; // Set uniform height for all charts
 
-                var trace3 = {
-                    x: time,
-                    y: dlTpt,
-                    mode: 'lines+markers',
-                    name: 'DL Tpt',
-                    yaxis: 'y2',
-                    line: {
-                        color: 'orange'
-                    }
-                };
+                // Create all plots with the same height
+                var layouts = [
+                    { title: 'DL Tpt', yaxisTitle: 'DL Tpt' },
+                    { title: 'DL-BLER', yaxisTitle: 'DL-BLER', yaxisRange: [0, 1] },
+                    { title: 'UL Tpt', yaxisTitle: 'UL Tpt' },
+                    { title: 'UL-BLER', yaxisTitle: 'UL-BLER', yaxisRange: [0, 1] }
+                ];
 
-                var trace4 = {
-                    x: time,
-                    y: ulTpt,
-                    mode: 'lines+markers',
-                    name: 'UL Tpt',
-                    yaxis: 'y2',
-                    line: {
-                        color: 'red'
-                    }
-                };
+                // Array of data for each plot
+                var data = [
+                    { x: time, y: dlTpt, color: 'red' },
+                    { x: time, y: dlBler, color: 'blue' },
+                    { x: time, y: ulTpt, color: 'green' },
+                    { x: time, y: ulBler, color: 'purple' }
+                ];
 
-                var layout = {
-                    title: 'Total DL-BLER, UL-BLER, DL Tpt, UL Tpt',
-                    xaxis: {
-                        title: 'Time',
-                        tickangle: -45, // Rotate the X axis labels
-                        automargin: true, // Ensure the labels are not clipped
-                        tickmode: 'linear', // Use linear tick mode
-                        dtick: Math.floor(time.length / 20) // Set a balanced number of ticks
-                    },
-                    yaxis: {
-                        title: 'DL/UL BLER',
-                        side: 'left',
-                        range: [0, 1]
-                    },
-                    yaxis2: {
-                        title: 'Throughput',
-                        side: 'right',
-                        overlaying: 'y',
-                        range: [0, Math.max(...dlTpt, ...ulTpt) * 1.1]
-                    },
-                    showlegend: true
-                };
+                // To reduce the number of time labels on the x-axis, we can sample the time array
+                var sampledTime = time.filter((value, index) => index % Math.ceil(time.length / 20) === 0); // Show about 10 ticks
 
-                var data = [trace1, trace2, trace3, trace4];
-                Plotly.newPlot(plots, data, layout);
+                // Loop through each chart data and layout to create and draw them
+                data.forEach(function (plotData, index) {
+                    var div = document.createElement('div');
+                    div.className = 'plot';
+                    plots.appendChild(div);
+
+                    var trace = {
+                        x: plotData.x,
+                        y: plotData.y,
+                        mode: 'lines+markers',
+                        name: layouts[index].title,
+                        line: { color: plotData.color }
+                    };
+
+                    var layout = {
+                        title: layouts[index].title,
+                        xaxis: {
+                            title: index === 3 ? 'Time' : '',
+                            showticklabels: index === 3,
+                            tickangle: 45, // Rotate the x-axis labels to avoid overlap
+                            automargin: true, // Ensure labels are not cut off
+                            tickvals: sampledTime, // Only display the sampled time points
+                            tickmode: 'array', // Use a custom array for tick labels
+                        },
+                        yaxis: {
+                            title: layouts[index].yaxisTitle,
+                            range: layouts[index].yaxisRange,
+                            showticks: true, // Display ticks on the y-axis
+                            tickmode: 'auto' // Automatically determine tick marks
+                        },
+                        margin: { b: 40, t: 30, l: 40, r: 40 },
+                        height: chartHeight,
+                        width: 1000,
+                    };
+
+                    Plotly.newPlot(div, [trace], layout);
+                });
             }
 
-            // Start processing the first file
+            // Start parsing the first file
             parseFile(files[currentFileIndex]);
         }
     </script>
