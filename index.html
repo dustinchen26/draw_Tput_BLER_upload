@@ -74,7 +74,7 @@
 
             reader.onprogress = function (event) {
                 if (event.lengthComputable) {
-                    var percentLoaded = Math.round((start + event.loaded) / file.size * 100);
+                    var percentLoaded = Math.min(Math.round((start + event.loaded) / file.size * 100), 100);
                     progress.value = percentLoaded;
                     progressLabel.textContent = percentLoaded + '%';
                 }
