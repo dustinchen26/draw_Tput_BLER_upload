@@ -36,8 +36,8 @@
             style="line-height: 1;">Dustin_Chen@compal.com</a> or <a href="mailto:chuhpsdustin@gmail.com"
             style="line-height: 1;">chuhpsdustin@gmail.com</a></p>
     <ul>
-        <li><strong>Please upload the du_stats_XXX.txt below, then it will draw the total DL-BLER, UL-BLER, DL Tpt, UL
-                Tpt</strong>
+        <li><strong>Please upload the du_stats_XXX.txt below, then it will draw the total DL-BLER, UL-BLER, DL
+                Tpt, UL Tpt</strong>
             <ul>
                 <li>total DL-BLER = DL-RETX /( DL-NEWTX + DL-RETX)</li>
                 <li>total UL-BLER = UL-RETX /( UL-NEWTX + UL-RETX)</li>
@@ -71,57 +71,67 @@
 
             // Function to parse a chunk of data
             function parseData(chunk) {
-                // 確保 chunk 不為 undefined 或 null
-                if (typeof chunk !== 'string') {
-                    console.warn('Received an invalid chunk: ', chunk);
-                    return;
-                }
-
-                // 將 chunk 分割為行
                 var inputData = chunk.trim().split('\n');
 
                 for (var i = 0; i < inputData.length; i++) {
                     var line = inputData[i].trim();
 
-                    if (line === '') {
-                        continue; // 跳過空行
+                    // Skip empty lines
+                    if (line === "") {
+                        continue;
                     }
 
-                    // 處理時間
+                    // Extract time
                     if (line.includes("GNB DU Statistics") && line.split(" ").length > 4) {
                         var timeParts = line.split(" ").slice(5, 9).join(" ");
                         time.push(timeParts);
                     }
-                    // 處理 DL-BLER
+                    // Extract DL-BLER
                     else if (line.startsWith("CELL-ID   CELL-DL-BANDWIDTH")) {
-                        var dlParts = inputData[i + 1] && inputData[i + 1].trim().split(/\s+/); // 確保 dlParts 存在
+                        var dlParts = inputData[i + 1]?.trim().split(/\s+/);
                         if (dlParts && dlParts.length > 11) {
                             var dlNewTx = parseFloat(dlParts[10]);
                             var dlReTx = parseFloat(dlParts[11]);
-                            var bler = dlReTx / (dlNewTx + dlReTx);
-                            dlBler.push(bler);
+                            if (!isNaN(dlNewTx) && !isNaN(dlReTx)) {
+                                var bler = dlReTx / (dlNewTx + dlReTx);
+                                dlBler.push(bler);
+                            } else {
+                                console.warn('Invalid DL-BLER data at line:', line);
+                            }
                         } else {
-                            console.warn('Invalid DL-BLER data at line:', inputData[i + 1]);
+                            console.warn('No data found after CELL-ID CELL-DL-BANDWIDTH at line:', line);
                         }
                     }
-                    // 處理 UL-BLER
+                    // Extract UL-BLER
                     else if (line.startsWith("CELL-ID   AVG-UL-PRB")) {
-                        var ulParts = inputData[i + 1] && inputData[i + 1].trim().split(/\s+/); // 確保 ulParts 存在
+                        var ulParts = inputData[i + 1]?.trim().split(/\s+/);
                         if (ulParts && ulParts.length > 9) {
                             var ulNewTx = parseFloat(ulParts[8]);
                             var ulReTx = parseFloat(ulParts[9]);
-                            var bler = ulReTx / (ulNewTx + ulReTx);
-                            ulBler.push(bler);
+                            if (!isNaN(ulNewTx) && !isNaN(ulReTx)) {
+                                var bler = ulReTx / (ulNewTx + ulReTx);
+                                ulBler.push(bler);
+                            } else {
+                                console.warn('Invalid UL-BLER data at line:', line);
+                            }
                         } else {
-                            console.warn('Invalid UL-BLER data at line:', inputData[i + 1]);
+                            console.warn('No data found after CELL-ID AVG-UL-PRB at line:', line);
                         }
                     }
-                    // 處理 DL Tpt 和 UL Tpt
+                    // Extract DL Tpt and UL Tpt
                     else if (line.startsWith("EGTP DL Tpt")) {
                         var dlTptValue = parseFloat(line.split(":")[1]);
-                        dlTpt.push(dlTptValue);
+                        if (!isNaN(dlTptValue)) {
+                            dlTpt.push(dlTptValue);
+                        } else {
+                            console.warn('Invalid DL Tpt data at line:', line);
+                        }
                         var ulTptValue = parseFloat(line.split("UL Tpt")[1]);
-                        ulTpt.push(ulTptValue);
+                        if (!isNaN(ulTptValue)) {
+                            ulTpt.push(ulTptValue);
+                        } else {
+                            console.warn('Invalid UL Tpt data at line:', line);
+                        }
                     }
                 }
             }
@@ -172,72 +182,58 @@
                     }
                 };
 
-                var data = [trace1, trace2, trace3, trace4];
-
                 var layout = {
-                    title: 'Total DL-BLER, UL-BLER, DL Tpt, UL Tpt Chart',
+                    title: 'Total DL-BLER, UL-BLER, DL Tpt, UL Tpt',
                     xaxis: {
-                        title: 'Time (GNB DU Statistics)',
-                        tickangle: -30,
-                        automargin: true,
-                        tickmode: 'array',
-                        nticks: 15,
-                        tickvals: time.filter((_, index) => index % Math.floor(time.length / 15) === 0),
-                        ticktext: time.filter((_, index) => index % Math.floor(time.length / 15) === 0)
+                        title: 'Time',
+                        tickangle: -45, // Rotate the X axis labels
+                        automargin: true // Ensure the labels are not clipped
                     },
                     yaxis: {
-                        title: 'BLER',
+                        title: 'DL/UL BLER',
                         side: 'left',
-                        range: [0, Math.max(...dlBler, ...ulBler) * 1.2]
+                        range: [0, 1]
                     },
                     yaxis2: {
-                        title: 'Tpt',
+                        title: 'Throughput',
                         side: 'right',
                         overlaying: 'y',
-                        range: [0, Math.max(...dlTpt, ...ulTpt) * 1.2]
+                        range: [0, Math.max(...dlTpt, ...ulTpt) * 1.1]
                     },
-                    width: 1400,
-                    height: 600
+                    showlegend: true
                 };
 
-                var plotDiv = document.createElement('div');
-                plotDiv.id = 'plot';
-                plots.appendChild(plotDiv);
-
-                Plotly.newPlot('plot', data, layout);
+                var data = [trace1, trace2, trace3, trace4];
+                Plotly.newPlot(plots, data, layout);
             }
 
-            // Function to load the next chunk
+            // Function to load a chunk of data from the file
             function loadNextChunk() {
+                var chunk = file.slice(currentPosition, currentPosition + chunkSize);
+                reader.readAsText(chunk);
+            }
+
+            // Handle file loading and parse each chunk
+            reader.onload = function (e) {
+                var chunk = e.target.result;
+                parseData(chunk);
+                currentPosition += chunkSize;
                 if (currentPosition < file.size) {
-                    var nextSlice = file.slice(currentPosition, currentPosition + chunkSize);
-                    reader.readAsText(nextSlice);
-                    currentPosition += chunkSize;
+                    loadNextChunk();
                 } else {
-                    // After loading all chunks, draw the chart
                     drawChart();
                 }
-            }
 
-            // Progress bar update
-            reader.onprogress = function (event) {
-                if (event.lengthComputable) {
-                    var percentLoaded = Math.min(Math.round((currentPosition + event.loaded) / file.size * 100), 100);
-                    progress.value = percentLoaded;
-                    progressLabel.textContent = percentLoaded + '%';
-                }
+                // Update progress
+                var progressValue = (currentPosition / file.size) * 100;
+                progress.value = progressValue;
+                progressLabel.textContent = progressValue.toFixed(2) + '%';
             };
 
-            // Read the chunk and process
-            reader.onload = function (event) {
-                parseData(event.target.result);
-                loadNextChunk();
-            };
-
-            // Start loading the first chunk
-            loadNextChunk();
+            loadNextChunk(); // Start loading the first chunk
         }
     </script>
 </body>
 
 </html>
+``
