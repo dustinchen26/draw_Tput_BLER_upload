@@ -32,13 +32,21 @@
         }
 
         .plot {
-            margin-bottom: 10px;
+            margin: 0; /* Remove any margin */
         }
 
         #plots {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: space-between; /* Align the plots in a row with space between them */
+            gap: 10px; /* Add some gap between the plots */
+            flex-wrap: wrap; /* Allow wrapping if the screen is too small */
+        }
+
+        /* Ensure each plot div has the same width */
+        .plot div {
+            flex: 1;
+            width: calc(25% - 10px); /* 4 plots, so 25% width minus gap */
+            max-width: 100%; /* Ensure plots don't overflow */
         }
     </style>
 </head>
