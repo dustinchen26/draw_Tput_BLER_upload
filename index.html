@@ -187,7 +187,9 @@
                     xaxis: {
                         title: 'Time',
                         tickangle: -45, // Rotate the X axis labels
-                        automargin: true // Ensure the labels are not clipped
+                        automargin: true, // Ensure the labels are not clipped
+                        tickmode: 'linear', // Use linear tick mode
+                        dtick: Math.floor(time.length / 20) // Set a balanced number of ticks
                     },
                     yaxis: {
                         title: 'DL/UL BLER',
@@ -236,4 +238,3 @@
 </body>
 
 </html>
-``
