@@ -26,6 +26,10 @@
         .progress-label {
             margin-right: 10px;
         }
+
+        .file-status {
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -36,18 +40,18 @@
             style="line-height: 1;">Dustin_Chen@compal.com</a> or <a href="mailto:chuhpsdustin@gmail.com"
             style="line-height: 1;">chuhpsdustin@gmail.com</a></p>
     <ul>
-        <li><strong>Please upload the du_stats_XXX.txt below, then it will draw the total DL-BLER, UL-BLER, DL
-                Tpt, UL Tpt</strong>
+        <li><strong>Please upload the du_stats_XXX.txt files below, then they will be processed to draw the total DL-BLER, UL-BLER, DL Tpt, UL Tpt</strong>
             <ul>
                 <li>total DL-BLER = DL-RETX /( DL-NEWTX + DL-RETX)</li>
                 <li>total UL-BLER = UL-RETX /( UL-NEWTX + UL-RETX)</li>
-                <li>total EGTP DL Tpt </li>
+                <li>total EGTP DL Tpt</li>
                 <li>total UL Tpt</li>
                 <div class="upload-container">
-                    <input type="file" id="fileInput" accept=".txt" class="upload-btn" onchange="uploadAndParse(this)">
+                    <input type="file" id="fileInput" accept=".txt" class="upload-btn" multiple onchange="uploadAndParse(this)">
                     <div class="progress-label" id="progressLabel">0%</div>
                     <progress id="progress" value="0" max="100"></progress>
                 </div>
+                <div id="fileStatus" class="file-status"></div>
                 <div id="plots"></div>
             </ul>
         </li>
@@ -55,85 +59,137 @@
 
     <script>
         function uploadAndParse(input) {
-            var file = input.files[0];
+            var files = Array.from(input.files);
             var progress = document.getElementById('progress');
             var progressLabel = document.getElementById('progressLabel');
+            var fileStatus = document.getElementById('fileStatus');
             var plots = document.getElementById('plots');
-
-            var reader = new FileReader();
-            var chunkSize = 10 * 1024 * 1024; // 10MB per chunk to handle 2GB files efficiently
-            var currentPosition = 0;
             var time = [];
             var dlBler = [];
             var ulBler = [];
             var dlTpt = [];
             var ulTpt = [];
 
-            // Function to parse a chunk of data
-            function parseData(chunk) {
-                var inputData = chunk.trim().split('\n');
+            // Sort the files based on the number in the filenames
+            files.sort(function(a, b) {
+                var numA = parseInt(a.name.match(/\d+/)[0]);
+                var numB = parseInt(b.name.match(/\d+/)[0]);
+                return numA - numB;
+            });
 
-                for (var i = 0; i < inputData.length; i++) {
-                    var line = inputData[i].trim();
+            var currentFileIndex = 0;
+            var totalFiles = files.length;
 
-                    // Skip empty lines
-                    if (line === "") {
-                        continue;
-                    }
+            // Function to parse a file
+            function parseFile(file) {
+                var reader = new FileReader();
+                var chunkSize = 10 * 1024 * 1024; // 10MB per chunk to handle large files
+                var currentPosition = 0;
+                var startTime = Date.now(); // Start time for processing speed calculation
 
-                    // Extract time
-                    if (line.includes("GNB DU Statistics") && line.split(" ").length > 4) {
-                        var timeParts = line.split(" ").slice(5, 9).join(" ");
-                        time.push(timeParts);
-                    }
-                    // Extract DL-BLER
-                    else if (line.startsWith("CELL-ID   CELL-DL-BANDWIDTH")) {
-                        var dlParts = inputData[i + 1]?.trim().split(/\s+/);
-                        if (dlParts && dlParts.length > 11) {
-                            var dlNewTx = parseFloat(dlParts[10]);
-                            var dlReTx = parseFloat(dlParts[11]);
-                            if (!isNaN(dlNewTx) && !isNaN(dlReTx)) {
-                                var bler = dlReTx / (dlNewTx + dlReTx);
-                                dlBler.push(bler);
+                // Function to parse a chunk of data
+                function parseData(chunk) {
+                    var inputData = chunk.trim().split('\n');
+
+                    for (var i = 0; i < inputData.length; i++) {
+                        var line = inputData[i].trim();
+
+                        // Skip empty lines
+                        if (line === "") {
+                            continue;
+                        }
+
+                        // Extract time
+                        if (line.includes("GNB DU Statistics") && line.split(" ").length > 4) {
+                            var timeParts = line.split(" ").slice(5, 9).join(" ");
+                            time.push(timeParts);
+                        }
+                        // Extract DL-BLER
+                        else if (line.startsWith("CELL-ID   CELL-DL-BANDWIDTH")) {
+                            var dlParts = inputData[i + 1]?.trim().split(/\s+/);
+                            if (dlParts && dlParts.length > 11) {
+                                var dlNewTx = parseFloat(dlParts[10]);
+                                var dlReTx = parseFloat(dlParts[11]);
+                                if (!isNaN(dlNewTx) && !isNaN(dlReTx)) {
+                                    var bler = dlReTx / (dlNewTx + dlReTx);
+                                    dlBler.push(bler);
+                                } else {
+                                    console.warn('Invalid DL-BLER data at line:', line);
+                                }
                             } else {
-                                console.warn('Invalid DL-BLER data at line:', line);
+                                console.warn('No data found after CELL-ID CELL-DL-BANDWIDTH at line:', line);
                             }
-                        } else {
-                            console.warn('No data found after CELL-ID CELL-DL-BANDWIDTH at line:', line);
                         }
-                    }
-                    // Extract UL-BLER
-                    else if (line.startsWith("CELL-ID   AVG-UL-PRB")) {
-                        var ulParts = inputData[i + 1]?.trim().split(/\s+/);
-                        if (ulParts && ulParts.length > 9) {
-                            var ulNewTx = parseFloat(ulParts[8]);
-                            var ulReTx = parseFloat(ulParts[9]);
-                            if (!isNaN(ulNewTx) && !isNaN(ulReTx)) {
-                                var bler = ulReTx / (ulNewTx + ulReTx);
-                                ulBler.push(bler);
+                        // Extract UL-BLER
+                        else if (line.startsWith("CELL-ID   AVG-UL-PRB")) {
+                            var ulParts = inputData[i + 1]?.trim().split(/\s+/);
+                            if (ulParts && ulParts.length > 9) {
+                                var ulNewTx = parseFloat(ulParts[8]);
+                                var ulReTx = parseFloat(ulParts[9]);
+                                if (!isNaN(ulNewTx) && !isNaN(ulReTx)) {
+                                    var bler = ulReTx / (ulNewTx + ulReTx);
+                                    ulBler.push(bler);
+                                } else {
+                                    console.warn('Invalid UL-BLER data at line:', line);
+                                }
                             } else {
-                                console.warn('Invalid UL-BLER data at line:', line);
+                                console.warn('No data found after CELL-ID AVG-UL-PRB at line:', line);
                             }
-                        } else {
-                            console.warn('No data found after CELL-ID AVG-UL-PRB at line:', line);
                         }
-                    }
-                    // Extract DL Tpt and UL Tpt
-                    else if (line.startsWith("EGTP DL Tpt")) {
-                        var dlTptValue = parseFloat(line.split(":")[1]);
-                        if (!isNaN(dlTptValue)) {
-                            dlTpt.push(dlTptValue);
-                        } else {
-                            console.warn('Invalid DL Tpt data at line:', line);
-                        }
-                        var ulTptValue = parseFloat(line.split("UL Tpt")[1]);
-                        if (!isNaN(ulTptValue)) {
-                            ulTpt.push(ulTptValue);
-                        } else {
-                            console.warn('Invalid UL Tpt data at line:', line);
+                        // Extract DL Tpt and UL Tpt
+                        else if (line.startsWith("EGTP DL Tpt")) {
+                            var dlTptValue = parseFloat(line.split(":")[1]);
+                            if (!isNaN(dlTptValue)) {
+                                dlTpt.push(dlTptValue);
+                            } else {
+                                console.warn('Invalid DL Tpt data at line:', line);
+                            }
+                            var ulTptValue = parseFloat(line.split("UL Tpt")[1]);
+                            if (!isNaN(ulTptValue)) {
+                                ulTpt.push(ulTptValue);
+                            } else {
+                                console.warn('Invalid UL Tpt data at line:', line);
+                            }
                         }
                     }
                 }
+
+                // Function to load a chunk of data from the file
+                function loadNextChunk() {
+                    var chunk = file.slice(currentPosition, currentPosition + chunkSize);
+                    reader.readAsText(chunk);
+                }
+
+                // Handle file loading and parse each chunk
+                reader.onload = function (e) {
+                    var chunk = e.target.result;
+                    parseData(chunk);
+                    currentPosition += chunkSize;
+
+                    // Update progress and remaining time
+                    var progressValue = (currentPosition / file.size) * 100;
+                    progress.value = progressValue;
+                    progressLabel.textContent = `Uploading File ${currentFileIndex + 1} of ${totalFiles}: ${progressValue.toFixed(2)}%`;
+
+                    var elapsedTime = Date.now() - startTime; // Time taken so far
+                    var estimatedTimeRemaining = (elapsedTime / currentPosition) * (file.size - currentPosition);
+                    var secondsRemaining = Math.max(0, Math.round(estimatedTimeRemaining / 1000)); // Remaining time in seconds
+                    fileStatus.textContent = `Processing file "${file.name}". Estimated time remaining: ${secondsRemaining} seconds.`;
+
+                    if (currentPosition < file.size) {
+                        loadNextChunk();
+                    } else {
+                        // Move to the next file if there are more files
+                        currentFileIndex++;
+                        if (currentFileIndex < files.length) {
+                            parseFile(files[currentFileIndex]);
+                        } else {
+                            drawChart();
+                        }
+                    }
+                };
+
+                loadNextChunk(); // Start loading the first chunk
             }
 
             // Function to draw the chart after reading all data
@@ -209,30 +265,8 @@
                 Plotly.newPlot(plots, data, layout);
             }
 
-            // Function to load a chunk of data from the file
-            function loadNextChunk() {
-                var chunk = file.slice(currentPosition, currentPosition + chunkSize);
-                reader.readAsText(chunk);
-            }
-
-            // Handle file loading and parse each chunk
-            reader.onload = function (e) {
-                var chunk = e.target.result;
-                parseData(chunk);
-                currentPosition += chunkSize;
-                if (currentPosition < file.size) {
-                    loadNextChunk();
-                } else {
-                    drawChart();
-                }
-
-                // Update progress
-                var progressValue = (currentPosition / file.size) * 100;
-                progress.value = progressValue;
-                progressLabel.textContent = progressValue.toFixed(2) + '%';
-            };
-
-            loadNextChunk(); // Start loading the first chunk
+            // Start processing the first file
+            parseFile(files[currentFileIndex]);
         }
     </script>
 </body>
