@@ -37,16 +37,15 @@
 
         #plots {
             display: flex;
-            justify-content: space-between; /* Align the plots in a row with space between them */
-            gap: 10px; /* Add some gap between the plots */
-            flex-wrap: wrap; /* Allow wrapping if the screen is too small */
+            flex-direction: column; /* Stack plots vertically */
+            align-items: stretch;  /* Ensure each plot takes the full width */
+            gap: 0; /* Remove gap between plots */
         }
 
-        /* Ensure each plot div has the same width */
+        /* Ensure each plot div takes full width and no margin */
         .plot div {
-            flex: 1;
-            width: calc(25% - 10px); /* 4 plots, so 25% width minus gap */
-            max-width: 100%; /* Ensure plots don't overflow */
+            width: 100%; /* Make each plot take full width */
+            margin: 0; /* Remove margin to make them tightly stacked */
         }
     </style>
 </head>
