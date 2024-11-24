@@ -221,7 +221,8 @@
         function drawCharts(filteredTime = time, filteredDlTpt = dlTpt, filteredDlBler = dlBler, filteredUlTpt = ulTpt, filteredUlBler = ulBler) {
             var plots = document.getElementById('plots');
             plots.innerHTML = ''; // Clear previous plots
-            var chartHeight = 190;
+
+    var chartHeight = 200; // Increased height for better space
 
                 var layouts = [
                     { title: 'DL Tpt', yaxisTitle: 'DL Tpt' },
@@ -269,7 +270,7 @@
                         tickmode: 'auto'
                         },
                         margin: { b: 40, t: 30, l: 40, r: 40 },
-                        height: chartHeight,
+            height: chartHeight, // Set the height to the adjusted value
                         width: 1000,
                     };
 
