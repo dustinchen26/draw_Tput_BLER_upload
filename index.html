@@ -119,7 +119,7 @@
                         // Extract time (remove the year part)
                         if (line.includes("GNB DU Statistics") && line.split(" ").length > 4) {
                             var timeParts = line.split(" ").slice(5, 9).join(" ");
-                            var timeFormatted = timeParts.replace(/\b2024\b/, ''); // Remove the year
+                            var timeFormatted = timeParts.replace(/^\d{4}\s/, ''); // Remove the year part (any 4-digit number followed by a space)
                             time.push(timeFormatted);
                         }
                         // Extract DL-BLER
