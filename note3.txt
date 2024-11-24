@@ -1,3 +1,13 @@
+修改底下html，增加上傳後，可以重新繪製圖形filter功能，
+上傳文件以後，請根據檔案上傳內容顯示下拉時間選單幾月幾日，
+舉例輸入格式如 GNB DU Statistics  Sat Nov 16 20:16:23 2024
+可以提取出時間2024/11/16 20:16:23，
+下拉選單就會增加2024/11/16，當使用者選擇11/16就可以濾出所有開頭是GNB DU Statistics  Sat Nov 16 的時間點畫圖，
+下拉選單只要列出年月日，後面小時分秒不要，
+舉例選擇Nov 16，就只filter出開頭是Nov 16的所有點，
+下拉選單也增加一個all的選單，
+下拉選單旁邊增加一個filter按鈕，當選擇11/16按下filter以後，就可以刷新圖片只留下11/16所有時間點畫圖，不要顯示11/16到11/18所有點
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,31 +79,25 @@
                     <progress id="progress" value="0" max="100"></progress>
                 </div>
                 <div id="fileStatus" class="file-status"></div>
-    <div class="filter-container">
-        <select id="dateFilter">
-            <option value="all">All</option>
-        </select>
-        <button onclick="applyFilter()">Filter</button>
-    </div>
-
                 <div id="plots"></div>
+            </ul>
+        </li>
+    </ul>
 
     <script>
-            var time = [];
-            var dlBler = [];
-            var ulBler = [];
-            var dlTpt = [];
-            var ulTpt = [];
-        var uniqueDates = new Set();
-
         function uploadAndParse(input) {
             var files = Array.from(input.files);
             var progress = document.getElementById('progress');
             var progressLabel = document.getElementById('progressLabel');
             var fileStatus = document.getElementById('fileStatus');
             var plots = document.getElementById('plots');
-            uniqueDates.clear();
+            var time = [];
+            var dlBler = [];
+            var ulBler = [];
+            var dlTpt = [];
+            var ulTpt = [];
 
+            // Sort the files based on the number in the filenames
             files.sort(function(a, b) {
                 var numA = parseInt(a.name.match(/\d+/)[0]);
                 var numB = parseInt(b.name.match(/\d+/)[0]);
@@ -103,27 +107,33 @@
             var currentFileIndex = 0;
             var totalFiles = files.length;
 
+            // Function to parse a file
             function parseFile(file) {
                 var reader = new FileReader();
-                var chunkSize = 10 * 1024 * 1024; // 10MB per chunk
+                var chunkSize = 10 * 1024 * 1024; // 10MB per chunk to handle large files
                 var currentPosition = 0;
-                var startTime = Date.now();
+                var startTime = Date.now(); // Start time for processing speed calculation
 
+                // Function to parse a chunk of data
                 function parseData(chunk) {
                     var inputData = chunk.trim().split('\n');
 
                     for (var i = 0; i < inputData.length; i++) {
                         var line = inputData[i].trim();
-                        if (line === "") continue;
 
-                        if (line.includes("GNB DU Statistics") && line.split(" ").length > 4) {
-                            var timeParts = line.split(" ").slice(5, 9).join(" ");
-                            var timeFormatted = timeParts.replace(/^\d{4}\s/, ''); 
-                            time.push(timeFormatted);
-                            uniqueDates.add(timeFormatted.slice(0, 7)); // Add 'Month Day' format (e.g. "Nov 16")
+                        // Skip empty lines
+                        if (line === "") {
+                            continue;
                         }
 
-                        if (line.startsWith("CELL-ID   CELL-DL-BANDWIDTH")) {
+                        // Extract time (remove the year part)
+                        if (line.includes("GNB DU Statistics") && line.split(" ").length > 4) {
+                            var timeParts = line.split(" ").slice(5, 9).join(" ");
+                            var timeFormatted = timeParts.replace(/^\d{4}\s/, ''); // Remove the year part (any 4-digit number followed by a space)
+                            time.push(timeFormatted);
+                        }
+                        // Extract DL-BLER
+                        else if (line.startsWith("CELL-ID   CELL-DL-BANDWIDTH")) {
                             var dlParts = inputData[i + 1]?.trim().split(/\s+/);
                             if (dlParts && dlParts.length > 11) {
                                 var dlNewTx = parseFloat(dlParts[10]);
@@ -131,11 +141,15 @@
                                 if (!isNaN(dlNewTx) && !isNaN(dlReTx)) {
                                     var bler = dlReTx / (dlNewTx + dlReTx);
                                     dlBler.push(bler);
+                                } else {
+                                    console.warn('Invalid DL-BLER data at line:', line);
                                 }
+                            } else {
+                                console.warn('No data found after CELL-ID CELL-DL-BANDWIDTH at line:', line);
                             }
                         }
-
-                        if (line.startsWith("CELL-ID   AVG-UL-PRB")) {
+                        // Extract UL-BLER
+                        else if (line.startsWith("CELL-ID   AVG-UL-PRB")) {
                             var ulParts = inputData[i + 1]?.trim().split(/\s+/);
                             if (ulParts && ulParts.length > 9) {
                                 var ulNewTx = parseFloat(ulParts[8]);
@@ -143,86 +157,77 @@
                                 if (!isNaN(ulNewTx) && !isNaN(ulReTx)) {
                                     var bler = ulReTx / (ulNewTx + ulReTx);
                                     ulBler.push(bler);
+                                } else {
+                                    console.warn('Invalid UL-BLER data at line:', line);
                                 }
+                            } else {
+                                console.warn('No data found after CELL-ID AVG-UL-PRB at line:', line);
                             }
                         }
-
-                        if (line.startsWith("EGTP DL Tpt")) {
+                        // Extract DL Tpt and UL Tpt
+                        else if (line.startsWith("EGTP DL Tpt")) {
                             var dlTptValue = parseFloat(line.split(":")[1]);
                             if (!isNaN(dlTptValue)) {
                                 dlTpt.push(dlTptValue);
+                            } else {
+                                console.warn('Invalid DL Tpt data at line:', line);
                             }
                             var ulTptValue = parseFloat(line.split("UL Tpt")[1]);
                             if (!isNaN(ulTptValue)) {
                                 ulTpt.push(ulTptValue);
+                            } else {
+                                console.warn('Invalid UL Tpt data at line:', line);
                             }
                         }
                     }
                 }
 
+                // Function to load a chunk of data from the file
                 function loadNextChunk() {
                     var chunk = file.slice(currentPosition, currentPosition + chunkSize);
                     reader.readAsText(chunk);
                 }
 
+                // Handle file loading and parse each chunk
                 reader.onload = function (e) {
                     var chunk = e.target.result;
                     parseData(chunk);
                     currentPosition += chunkSize;
+
+                    // Update progress and remaining time
                     var progressValue = (currentPosition / file.size) * 100;
                     progress.value = progressValue;
                     progressLabel.textContent = `Uploading File ${currentFileIndex + 1} of ${totalFiles}: ${progressValue.toFixed(2)}%`;
 
-                    var elapsedTime = Date.now() - startTime;
+                    var elapsedTime = Date.now() - startTime; // Time taken so far
                     var estimatedTimeRemaining = (elapsedTime / currentPosition) * (file.size - currentPosition);
-                    var secondsRemaining = Math.max(0, Math.round(estimatedTimeRemaining / 1000));
+                    var secondsRemaining = Math.max(0, Math.round(estimatedTimeRemaining / 1000)); // Remaining time in seconds
                     fileStatus.textContent = `Processing file "${file.name}". Estimated time remaining: ${secondsRemaining} seconds.`;
 
                     if (currentPosition < file.size) {
                         loadNextChunk();
                     } else {
+                        // Move to the next file if there are more files
                         currentFileIndex++;
                         if (currentFileIndex < files.length) {
                             parseFile(files[currentFileIndex]);
                         } else {
-                            updateDateFilter();
                             drawCharts();
                         }
                     }
                 };
 
-                loadNextChunk();
+                loadNextChunk(); // Start loading the first chunk
             }
 
-            parseFile(files[currentFileIndex]);
-        }
+            // Function to draw the charts after reading all data
+            function drawCharts() {
+                // Create individual div elements for each plot
+                plots.innerHTML = ''; // Clear previous content
 
-        function updateDateFilter() {
-            var dateFilter = document.getElementById('dateFilter');
-            uniqueDates.forEach(date => {
-                var option = document.createElement('option');
-                option.value = date;
-                option.textContent = date;
-                dateFilter.appendChild(option);
-            });
-        }
+                var chartHeight = 190; // Set uniform height for all charts
 
-        function applyFilter() {
-            var selectedDate = document.getElementById('dateFilter').value;
-            var filteredTime = time.filter(t => selectedDate === 'all' || t.startsWith(selectedDate));
-            var filteredDlBler = filteredTime.map((_, index) => dlBler[index]);
-            var filteredUlBler = filteredTime.map((_, index) => ulBler[index]);
-            var filteredDlTpt = filteredTime.map((_, index) => dlTpt[index]);
-            var filteredUlTpt = filteredTime.map((_, index) => ulTpt[index]);
-
-            drawCharts(filteredTime, filteredDlTpt, filteredDlBler, filteredUlTpt, filteredUlBler);
-        }
-
-        function drawCharts(filteredTime = time, filteredDlTpt = dlTpt, filteredDlBler = dlBler, filteredUlTpt = ulTpt, filteredUlBler = ulBler) {
-            var plots = document.getElementById('plots');
-            plots.innerHTML = ''; // Clear previous plots
-            var chartHeight = 190;
-
+                // Create all plots with the same height
                 var layouts = [
                     { title: 'DL Tpt', yaxisTitle: 'DL Tpt' },
                     { title: 'DL-BLER', yaxisTitle: 'DL-BLER', yaxisRange: [0, 1] },
@@ -230,15 +235,18 @@
                     { title: 'UL-BLER', yaxisTitle: 'UL-BLER', yaxisRange: [0, 1] }
                 ];
 
+                // Array of data for each plot
                 var data = [
-                { x: filteredTime, y: filteredDlTpt, color: 'red' },
-                { x: filteredTime, y: filteredDlBler, color: 'blue' },
-                { x: filteredTime, y: filteredUlTpt, color: 'green' },
-                { x: filteredTime, y: filteredUlBler, color: 'purple' }
+                    { x: time, y: dlTpt, color: 'red' },
+                    { x: time, y: dlBler, color: 'blue' },
+                    { x: time, y: ulTpt, color: 'green' },
+                    { x: time, y: ulBler, color: 'purple' }
                 ];
 
-            var sampledTime = filteredTime.filter((value, index) => index % Math.ceil(filteredTime.length / 20) === 0);
+                // To reduce the number of time labels on the x-axis, we can sample the time array
+                var sampledTime = time.filter((value, index) => index % Math.ceil(time.length / 20) === 0); // Show about 10 ticks
 
+                // Loop through each chart data and layout to create and draw them
                 data.forEach(function (plotData, index) {
                     var div = document.createElement('div');
                     div.className = 'plot';
@@ -257,16 +265,16 @@
                         xaxis: {
                             title: index === 3 ? 'Time' : '',
                             showticklabels: index === 3,
-                        tickangle: 45,
-                        automargin: true,
-                        tickvals: sampledTime,
-                        tickmode: 'array',
+                            tickangle: 45, // Rotate the x-axis labels to avoid overlap
+                            automargin: true, // Ensure labels are not cut off
+                            tickvals: sampledTime, // Only display the sampled time points
+                            tickmode: 'array', // Use a custom array for tick labels
                         },
                         yaxis: {
                             title: layouts[index].yaxisTitle,
                             range: layouts[index].yaxisRange,
-                        showticks: true,
-                        tickmode: 'auto'
+                            showticks: true, // Display ticks on the y-axis
+                            tickmode: 'auto' // Automatically determine tick marks
                         },
                         margin: { b: 40, t: 30, l: 40, r: 40 },
                         height: chartHeight,
@@ -275,8 +283,13 @@
 
                     Plotly.newPlot(div, [trace], layout);
                 });
+            }
+
+            // Start parsing the first file
+            parseFile(files[currentFileIndex]);
         }
     </script>
 </body>
 
 </html>
+
