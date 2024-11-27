@@ -92,6 +92,14 @@
             var progressLabel = document.getElementById('progressLabel');
             var fileStatus = document.getElementById('fileStatus');
             var plots = document.getElementById('plots');
+            
+            // Clear previous plots and reset chart data
+            plots.innerHTML = '';  // Clear all existing charts
+            time = [];
+            dlBler = [];
+            ulBler = [];
+            dlTpt = [];
+            ulTpt = [];
             uniqueDates.clear();
 
             files.sort(function(a, b) {
