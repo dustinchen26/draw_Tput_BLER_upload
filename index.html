@@ -75,8 +75,10 @@
         </select>
         <button onclick="applyFilter()">Filter</button>
     </div>
-
                 <div id="plots"></div>
+            </ul>
+        </li>
+    </ul>
 
     <script>
             var time = [];
@@ -221,13 +223,21 @@
 
         function applyFilter() {
             var selectedDate = document.getElementById('dateFilter').value;
-            var filteredTime = time.filter(t => selectedDate === 'all' || t.startsWith(selectedDate));
-            var filteredDlBler = filteredTime.map((_, index) => dlBler[index]);
-            var filteredUlBler = filteredTime.map((_, index) => ulBler[index]);
-            var filteredDlTpt = filteredTime.map((_, index) => dlTpt[index]);
-            var filteredUlTpt = filteredTime.map((_, index) => ulTpt[index]);
 
-            drawCharts(filteredTime, filteredDlTpt, filteredDlBler, filteredUlTpt, filteredUlBler);
+            // If 'all' is selected, no filter is applied, else filter by the selected date
+            var filteredData = time.reduce((acc, t, index) => {
+                if (selectedDate === 'all' || t.startsWith(selectedDate)) {
+                    acc.time.push(t);
+                    acc.dlBler.push(dlBler[index]);
+                    acc.ulBler.push(ulBler[index]);
+                    acc.dlTpt.push(dlTpt[index]);
+                    acc.ulTpt.push(ulTpt[index]);
+                }
+                return acc;
+            }, { time: [], dlBler: [], ulBler: [], dlTpt: [], ulTpt: [] });
+
+            // Pass filtered data to draw charts
+            drawCharts(filteredData.time, filteredData.dlTpt, filteredData.dlBler, filteredData.ulTpt, filteredData.ulBler);
         }
 
         function drawCharts(filteredTime = time, filteredDlTpt = dlTpt, filteredDlBler = dlBler, filteredUlTpt = ulTpt, filteredUlBler = ulBler) {
@@ -250,6 +260,7 @@
                 { x: filteredTime, y: filteredUlBler, color: 'purple' }
                 ];
 
+            // Sample the time values for ticks to avoid overlapping
             var sampledTime = filteredTime.filter((value, index) => index % Math.ceil(filteredTime.length / 20) === 0);
 
                 data.forEach(function (plotData, index) {
