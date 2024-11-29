@@ -92,6 +92,7 @@
             var progressLabel = document.getElementById('progressLabel');
             var fileStatus = document.getElementById('fileStatus');
             var plots = document.getElementById('plots');
+            var dateFilter = document.getElementById('dateFilter');
             
             // Clear previous plots and reset chart data
             plots.innerHTML = '';  // Clear all existing charts
@@ -101,6 +102,9 @@
             dlTpt = [];
             ulTpt = [];
             uniqueDates.clear();
+
+            // Reset the date filter options
+            dateFilter.innerHTML = '<option value="all">All</option>'; // Reset to default option
 
             files.sort(function(a, b) {
                 var numA = parseInt(a.name.match(/\d+/)[0]);

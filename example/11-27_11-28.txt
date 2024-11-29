@@ -1,0 +1,1549 @@
+
+#############################################################################################
+                       Software RAD - DU ver 03.00.00
+#############################################################################################
+#############################################################################################
+                       GNB DU Statistics  Wed Nov 27 23:59:52 2024
+#############################################################################################
+
+---------------------------------------------------------------------------------------------
+                       DU Control Plane Cummulative Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID   HANDOUT-TRIG        HANDOUT-SUCC        HANDOUT-FAIL        RRC-RES-TRIG        HANDIN-TRIG         HANDIN-SUCC         HANDIN-FAIL         INTRA-HO-TRIG       INTRA-HO-SUCC       INTRA-HO-FAIL       
+1         0                   0                   0                   0                   0                   0                   0                   0                   0                   0                   
+
+---------------------------------------------------------------------------------------------
+                       Error Cummulative Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID   PDSCH_INFO_WO_TX_DATA
+1         0         
+
+---------------------------------------------------------------------------------------------
+                       RACH Cummulative Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID   Cfra-Cfgd Cbra-Cfgd Pmbl-Dctd Pmbl-Igrd Cfra-Pmbl-Dctd Cbra-Pmbl-Dctd Pmbl-Srvd Num-RAR   Msg3-Ded-Succ  Msg3-NonDed-Succ    Msg3-Ded-Fail  Msg3-NonDed-Fail    Msg3-Crnti-CE  Num-RAR-Backoff  Num-RAR-Grant-GroupA  Num-RAR-Grant-GroupB  
+1         0         0         2332      71        0              2261           2261      1853      0                   871            0                   1388           0              0                733                   1528                  
+
+---------------------------------------------------------------------------------------------
+                Cell Level UL Sync Loss and Recovery Statistics  
+---------------------------------------------------------------------------------------------
+CELL-ID   Ul-Out-of-SyncUl-In-Sync    Ul-UnRecov    PdcchOr-Schd   PdcchOr-CFRA-Pmbl PdcchOr-CBRA-Pmbl PdcchOr-Retry-1   PdcchOr-Retry-2   PdcchOr-Retry-3   PdcchOr-Retry-4   
+1         0             0             0             0              0                 0                 0                 0                 0                 0                 
+
+---------------------------------------------------------------------------------------------
+                       F1AP Message Statistics
+---------------------------------------------------------------------------------------------
+DU:CU      F1-SETUP-REQUEST                                           1
+CU:DU      F1-SETUP-RESPONSE                                          1
+CU:DU      F1-SETUP-FAILURE                                           0
+CU:DU      F1-RESET                                                   0
+DU:CU      F1-RESET-ACKNOWLEDGE                                       0
+DU:CU      GNB-DU-CONFIG-UPDATE                                       2
+CU:DU      GNB-DU-CONFIG-UPDATE-ACKNOWLEDGE                           2
+CU:DU      GNB-DU-CONFIG-UPDATE-FAILURE                               0
+CU:DU      GNB-CU-CONFIG-UPDATE                                       1
+DU:CU      GNB-CU-CONFIG-UPDATE-ACKNOWLEDGE                           1
+CU:DU      GNB-DU-RESOURCE-COORDINATION-REQUEST                       0
+DU:CU      GNB-DU-RESOURCE-COORDINATION-REQUEST-ACKNOWLEDGE           0
+CU:DU      UE-CONTEXT-SETUP-REQUEST                                   120
+DU:CU      UE-CONTEXT-SETUP-RESPONSE                                  118
+DU:CU      UE-CONTEXT-SETUP-FAILURE                                   2
+DU:CU      UE-CONTEXT-RELEASE-REQUEST                                 328
+CU:DU      UE-CONTEXT-RELEASE-COMMAND                                 671
+DU:CU      UE-CONTEXT-RELEASE-COMPLETE                                500
+CU:DU      UE-CONTEXT-MODIFICATION-REQUEST                            117
+DU:CU      UE-CONTEXT-MODIFICATION-RESPONSE                           117
+DU:CU      UE-CONTEXT-MODIFICATION-FAILURE                            0
+DU:CU      UE-CONTEXT-MODIFICATION-REQUIRED                           0
+CU:DU      UE-CONTEXT-MODIFICATION-CONFIRM                            0
+CU:DU      DL-RRC-MESSAGE-TRANSFER                                    1541
+DU:CU      UL-RRC-MESSAGE-TRANSFER                                    954
+DU:CU      INITIAL-UL-RRC-MESSAGE-TRANSFER                            506
+CU:DU      WRITE-REPLACE-WARNING-REQUEST                              0
+DU:CU      WRITE-REPLACE-WARNING-RESPONSE                             0
+
+
+---------------------------------------------------------------------------------------------
+                       DU User Plane Cummulative Statistics
+---------------------------------------------------------------------------------------------
+   DROP-BUFFER-FULL                                                   0
+  DLSDAP-DEQ-FAILED                                                   0
+  ULSDAP-ENQ-FAILED                                                   0
+  ULSDAP-DEQ-FAILED                                                   0
+  DLPDCP-ENQ-FAILED                                                   0
+  DLPDCP-DEQ-FAILED                                                   0
+  DLPDCP-FWDQ-DEQ-FAILED                                              0
+  DLPDCP-CIPHQ-ENQ-FAILED                                             0
+  DLPDCP-CIPHQ-DEQ-FAILED                                             0
+  ULPDCP-CIPHQ-ENQ-FAILED                                             0
+  ULPDCP-CIPHQ-DEQ-FAILED                                             0
+  NRUP-DL-ENQUEUE-FAILED                                              0
+  NRUP-DL-DEQUEUE-FAILED                                              0
+  EGTP-UL-ENQUEUE-FAILED                                              0
+  EGTP-UL-DEQUEUE-FAILED                                              0
+   RLC-DATREQ-TRIG1                                                   0
+   RLC-DATREQ-TRIG2                                                   0
+   RLC-DATREQ-PROC1                                                   83862453
+   RLC-DATREQ-PROC2                                                   83862453
+   RLC-ENQ-FAILED                                                     0
+   RLC-SDU-DQ-FAILED                                                  0
+   DROP-SDU-QUEUE-FULL                                                0
+   DROP-MEM-ALLOC-FAILED                                              0
+   DROP-TUNNEL-NOT-FOUND                                              0
+   DROP-RAB-NOT-FOUND                                                 0
+   DROP-REEST-IN-PROGRESS                                             0
+   DROP-DECODE-FAIL                                                   0
+   MAC-DECODE-FAIL                                                    15
+   DROP-UDP-RX-MEM-ALLOC-FAIL                                         0
+
+
+UpTime : 74468 sec
+#############################################################################################
+                       GNB DU Statistics  
+#############################################################################################
+---------------------------------------------------------------------------------------------
+                       DL Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID   CELL-DL-BANDWIDTH  CELL-UL-BANDWIDTH  AVG-DL-PRB  AVG-DL-PRB-BWP-0  AVG-DL-PRB-BWP-1  AVG-DL-PRB-BWP-2  AVG-DL-PRB-BWP-3  DL-OCC   DL-SUCC   DL-NEWTX    DL-RETX   DL-DTX   DL-NACK-RV[0]   DL-NACK-RV[1]   DL-NACK-RV[2]   DL-NACK-RV[3]   DL-DTX-RV[0]   DL-DTX-RV[1]   DL-DTX-RV[2]   DL-DTX-RV[3]   DL-BLER   
+1         0                  0                  43.13       43.13             0.00              0.00              0.00              12003    16211     16131       80        0        80              0               0               0               0              0              0              0              0         
+
+---------------------------------------------------------------------------------------------
+                       UL Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID   AVG-UL-PRB  AVG-UL-PRB-BWP-0  AVG-UL-PRB-BWP-1  AVG-UL-PRB-BWP-2  AVG-UL-PRB-BWP-3  UL-OCC   UL-SUCC   UL-NEWTX   UL-RETX   UL-DATIND   UL-BLER ERR-PUCCH-NODE ERR-PUCCH-MSGLEN 
+1         165         165               0                 0                 0                 0        31953     19956      11997     8707        50      0              0                
+
+---------------------------------------------------------------------------------------------
+                       Failure Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID   DL-OCC   DL-SUCC   TTI-ERR-MAJOR TTI-ERR-MINOR  DL-FAIL_0    DL-FAIL_1    DL-FAIL_2    DL-FAIL_3    DL-FAIL_4    DL-FAIL_5    DL-FAIL_6    DL-FAIL_7    DL-FAIL_8    DL-FAIL_9    DL-FAIL_10   DL-FAIL_11   DL-FAIL_12   DL-FAIL_13   DL-FAIL_14   DL-FAIL_15   DL-FAIL_16   DL-FAIL_17   DL-FAIL_18   DL-FAIL_19   DL-FAIL_20   DL-FAIL_21   DL-FAIL_22   DL-FAIL_23   DL-FAIL_24   DL-FAIL_25   DL-FAIL_26   
+1         12003    16211     0              0             392          0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            2322         0            0            0            
+
+---------------------------------------------------------------------------------------------
+                       Cell UE Per TTI(UE/TTI) Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID  DL-0    UL-0    DL-1    UL-1    DL-2    UL-2    DL-3    UL-3    DL-4    UL-4    DL-5    UL-5    DL-6    UL-6    DL-7    UL-7    DL-8    UL-8    
+1        0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       
+
+---------------------------------------------------------------------------------------------
+                      Cell UE Statistics for DL MU-MIMO
+---------------------------------------------------------------------------------------------
+CELL-ID  MU-MIMO-PAIR  MU-MIMO-PAIR-4LAYER MU-MIMO-PAIR-3LAYER MU-MIMO-PAIR-2LAYER 
+1        0             0                   0                   0                   
+
+---------------------------------------------------------------------------------------------
+      Cell Level SHORT TERM BLER Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID  DIR     BLER%    0.0%     <0.5%    <1.0%    <2.0%    <5.0%    <10.0%   <25.0%   <50.0%   <100.0%  
+1        DL      5.56     1025     0        0        14       158      3        0        0        0        
+ 
+1        UL      50.00    0        0        0        0        0        0        0        0        1200     
+
+---------------------------------------------------------------------------------------------
+      Cell Level LONG TERM BLER Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID  DIR     BLER%    0.0%     <0.5%    <1.0%    <2.0%    <5.0%    <10.0%   <25.0%   <50.0%   <100.0%  
+1        DL      0.43     0        1        0        0        0        0        0        0        0        
+ 
+1        UL      50.05    0        0        0        0        0        0        0        0        1        
+
+---------------------------------------------------------------------------------------------
+                       UE SCH:DRX Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID  CELL-ID  BEAM-ID  STRT-ON-DUR STRT-DL-INACTV STRT-UL-INACTV STRT-DL-RETX  STRT-UL-RETX  EXP-ON-DUR  EXP-INACTV  EXP-DL-RETX   EXP-UL-RETX   EXP-SHORT_CYCL  UE_INACT_TO_ACT   UE_ACT_TO_INACT   UE_DL_INACT_CNT   UE_UL_INACT_CNT   
+
+17575  1        0        0           0              0              0             0             0           0           0             0             0               0                 0                 0                 0                 
+17692  1        0        0           0              0              0             0             0           0           0             0             0               0                 0                 0                 0                 
+17693  1        0        0           0              0              0             0             0           0           0             0             0               0                 0                 0                 0                 
+17707  1        0        0           0              0              0             0             0           0           0             0             0               0                 0                 0                 0                 
+17723  1        0        0           0              0              0             0             0           0           0             0             0               0                 0                 0                 0                 
+17752  1        0        0           0              0              0             0             0           0           0             0             0               0                 0                 0                 0                 
+
+---------------------------------------------------------------------------------------------
+                       UE Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID     BEAM-ID   CSIRS-PORT   PCELL-ID  DL-PKT-RX   DL-TPT    UL-PKT-TX UL-TPT    DL-LC-1   DL-LC-2   DL-LC-3   DL-LC-4   UL-LC-1   UL-LC-2   UL-LC-3   UL-LC-4   DL-PADDING  UL-PADDING  DL-PRB    UL-PRB    NUM-SR    NUM-BSR-TMR    SCELL-ACT-CE   TA-CE     NUM-TA-TMR   TA        
+17575     0         0            1         0           0.0000    0         0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000      0.0000      0         0         0         0              0              0         0            0         
+17692     0         0            1         0           0.0000    0         0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000      0.0000      0         51        0         0              0              0         0            0         
+17693     0         0            1         46823       53.6374   0         0.0000    54.1501   0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.3166      0.1126      42        16        221       0              0              0         0            0         
+17707     0         0            1         0           0.0000    0         0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000      0.0000      0         51        0         0              0              0         0            0         
+17723     0         0            1         3691        0.1319    7327      8.2528    0.2677    0.0000    0.0000    0.0000    8.2735    0.0000    0.0000    0.0000    0.1260      8.7042      1         68        19        0              0              0         0            0         
+17752     0         0            1         4228        0.1506    8327      9.3256    0.2957    0.0000    0.0000    0.0000    9.3470    0.0000    0.0000    0.0000    0.1335      8.9062      1         73        0         0              0              0         0            0         
+
+---------------------------------------------------------------------------------------------
+                       Cell Tpt Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID  NUM-UE   SCH-DL  SCH-UL    
+1        6        54.71   17.62     
+
+Total Number of UEs  : 6
+	 EGTP DL Tpt : 53.92  UL Tpt 17.58
+	 X2 EGTP DL Tpt : 0.00  UL Tpt 0.00
+	 SCH  DL Tpt : 54.71  UL Tpt 17.62
+
+---------------------------------------------------------------------------------------------
+                       PUCCH Resource Allocation Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID  CELL-ID BWP-ID  GP-ID   SET-ID  SUCC    FAIL           
+17693  1       0       0       0       11014   33      
+17723  1       0       0       0       2447    2       
+17752  1       0       0       0       2750    0       
+
+---------------------------------------------------------------------------------------------
+                       PDCCH Resource Allocation Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID  CELL-ID BWP-ID  TYPE    CS-ID   SS-ID AGG-LVL  REQ             SUCC            FAIL      CANDT_TRIES    CANDT_NOT_AVL  CANDT_TRIES_F0 FAIL_PUCCH     FAIL_PUCCH_F0  FAIL_PUCCH_NON_F0   FAIL_MAX_CANDT   
+17693  1       0       0       1       3     2        11014           11014           0         12961          0              33             0              33             0                   0                
+17707  1       0       1       1       3     2        8022            0               31        10487          0              0              0              0              0                   31               
+17723  1       0       0       1       3     2        3653            2447            1206      9357           0              2              0              2              0                   1206             
+17723  1       0       1       1       3     2        7894            0               74        13895          0              0              0              0              0                   74               
+17752  1       0       0       1       3     2        3866            2750            1116      9411           0              0              0              0              0                   1116             
+17752  1       0       1       1       3     2        7960            0               41        9914           0              0              0              0              0                   41               
+
+---------------------------------------------------------------------------------------------
+                       PDSCH Rate Match Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID  CELL-ID BWP-ID  TOTAL       PBCH           CORESET        AVG-MCS   AVG-RATE-MATCH-MCS  AVG-EFF-CODE-RATE   PRB-INCREASED     FAIL-CNT 
+17575  1       0       0           0              0              0         0                   0                   0                 0         
+17692  1       0       0           0              0              0         0                   0                   0                 0         
+17693  1       0       0           0              0              0         0                   0                   0                 0         
+17707  1       0       0           0              0              0         0                   0                   0                 0         
+17723  1       0       0           0              0              0         0                   0                   0                 0         
+17752  1       0       0           0              0              0         0                   0                   0                 0         
+
+---------------------------------------------------------------------------------------------
+                       UE MAC-Scheduler Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID   CELL-ID   ON-SUL   DL-NEWTX  DL-RETX   ACK-TB[0] NACK-TB[0]  BLER-TB[0]  DTX-TB[0] ACK-TB[1] NACK-TB[1]  BLER-TB[1]  DTX-TB[1] DL-MCS  DL-RI-PER   DL-CQI-PER     UL-NEWTX  UL-RETX  UL-CRC-SUCC   UL-CRC-FAIL   UL-CRC-DTX   UL-CQI  UL-MCS  UL-RI   NUM-BSR   SHR-BSR ST-BSR  LNG-BSR LT-BSR  NUM-CSI   NUM-SRS   UL-BLER   
+17575   1         0        0         0         0         0           0           0         0         0           0           0         0       0           0              0         0        0             0             0            0       0       0       0         0       0       0       0       0         0         0         
+17692   1         0        0         0         0         0           0           0         0         0           0           0         0       0           0              2000      6002     0             8002          0            10      0       0       0         0       0       0       0       0         0         100       
+17693   1         0        11011     3         11009     3           0           0         0         0           0           0         8       1           8              221       0        221           0             0            10      9       0       221       221     0       0       0       0         0         0         
+17707   1         0        0         0         0         0           0           0         0         0           0           0         0       0           0              1996      5995     0             7991          0            10      0       0       0         0       0       0       0       0         0         100       
+17723   1         0        2434      13        2432      13          0           0         0         0           0           0         8       1           8              7820      0        7820          0             0            10      9       0       5472      1461    0       4011    0       0         0         0         
+17752   1         0        2686      64        2685      64          2           0         0         0           0           0         8       1           8              7919      0        7919          0             0            10      9       0       5284      1547    0       3737    0       0         0         0         
+
+---------------------------------------------------------------------------------------------
+                       UE SCH:UL POWER CONTROL PUCCH/PUSCH Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID  CELL-ID PUSCH-SNR   PHR         PH-VAL      PUSCH-TPC   PUSCH-TPC[0]   PUSCH-TPC[1]   PUSCH-TPC[2]   PUSCH-TPC[3]   UL-PRB-REQ  UL-PWR-PRB  PUCCH-SNR   PWR-DELTA   PUCCH-TPC   PUCCH-TPC[0]   PUCCH-TPC[1]   PUCCH-TPC[2]   PUCCH-TPC[3]   
+17575  1       0           255         255         0           0              0              0              0              0           0           0           0           0           0              0              0              0              
+17692  1       10          255         255         0           0              0              0              0              85          273         0           0           0           0              0              0              0              
+17693  1       34          255         255         0           0              0              0              0              130         273         53          -1          0           0              0              0              0              
+17707  1       10          255         255         0           0              0              0              0              87          273         0           0           0           0              0              0              0              
+17723  1       28          255         255         0           0              0              0              0              98          273         50          -1          0           0              0              0              0              
+17752  1       29          255         255         0           0              0              0              0              100         273         46          -1          0           0              0              0              0              
+
+---------------------------------------------------------------------------------------------
+                       UE SCH:UCI on PUCCH/PUSCH Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID  CELL-ID UC:EXPT UC:ACK    UC:NACK   UC:DTX    UC:CSI    US:EXPT US:ACK    US:NACK   US:DTX    HqBetaOff1     US:CSI         
+17575  1       0       0         0         0         0         0       0         0         0         0              0              
+17692  1       0       0         0         0         0         0       0         0         0         0              0              
+17693  1       7949    11009     3         0         0         0       0         0         0         0              0              
+17707  1       0       0         0         0         0         0       0         0         0         0              0              
+17723  1       2373    2432      13        0         0         0       0         0         0         0              0              
+17752  1       2664    2685      64        0         0         0       0         0         0         0              0              
+
+---------------------------------------------------------------------------------------------
+                      UE Level DL PFS SCH KPI
+---------------------------------------------------------------------------------------------
+UE-ID  DL-Occ  TXOcc-RETX-Q  TXOcc-MSG4-Q  TXOcc-CCCH-Q  TXOcc-CE-Q  TXOcc-SRB-Q  TXOcc-IMS-Q  TXOcc-VoNR-Q  TXOcc-GBR-Q  TXOcc-NGBR-Q  CQI-HIST-0  CQI-HIST-1  CQI-HIST-2  SRVD-HIST-0   SRVD-HIST-1   SRVD-HIST-2   UE-PFS-PRIO-HIST-0   UE-PFS-PRIO-HIST-1   UE-PFS-PRIO-HIST-2   PRB-MAX-SUCC   PRB-MAX_FAIL   
+17575  0       0             0             0             0           0            0            0             0            0             100         0           0           0             0             100           0                    0                    0                    0              0              
+17692  0       0             0             0             0           0            0            0             0            0             100         0           0           0             0             100           0                    0                    0                    0              0              
+17693  11014   3             0             0             0           0            0            0             0            0             100         0           0           100           0             0             11141                0                    0                    11011          0              
+17707  0       0             0             0             0           0            0            0             0            0             100         0           0           0             0             100           0                    0                    0                    0              0              
+17723  2447    13            0             0             0           0            0            0             0            0             100         0           0           0             0             100           0                    2441                 0                    2434           0              
+17752  2750    64            0             0             0           0            0            0             0            0             101         0           0           0             0             101           0                    2699                 0                    2686           0              
+
+---------------------------------------------------------------------------------------------
+                     DL LC Level PFS SCH KPI
+---------------------------------------------------------------------------------------------
+UE-ID  5QI  LC-ID     BO-SRVD          CS-CAUSE  5QI-PRIO  GBR-MISS-CNT   GBR-PRIO-HIST-0  GBR-PRIO-HIST-1  GBR-PRIO-HIST-2  
+17575  0    RETX      0                0         0         0              0                0                0                
+17575  0    CCCH      0                0         0         0              0                0                0                
+17575  0    MSG4      0                0         0         0              0                0                0                
+17575  0    CE        0                0         0         0              0                0                0                
+17575  0    1         0                0         496090    0              0                0                0                
+17575  0    2         0                0         496090    0              0                0                0                
+17575  9    4         0                0         148435    0              0                0                0                
+17692  0    RETX      0                0         0         0              0                0                0                
+17692  0    CCCH      0                0         0         0              0                0                0                
+17692  0    MSG4      0                0         0         0              0                0                0                
+17692  0    CE        0                0         0         0              0                0                0                
+17692  0    1         0                0         496090    0              0                0                0                
+17692  0    2         0                0         496090    0              0                0                0                
+17692  9    4         0                0         148435    0              0                0                0                
+17693  0    RETX      11843            3         0         0              0                0                0                
+17693  0    CCCH      0                0         0         0              0                0                0                
+17693  0    MSG4      0                0         0         0              0                0                0                
+17693  0    CE        0                0         0         0              0                0                0                
+17693  0    1         0                0         496090    0              0                0                0                
+17693  0    2         0                0         496090    0              0                0                0                
+17693  9    4         67691474         11011     148435    0              0                0                0                
+17707  0    RETX      0                0         0         0              0                0                0                
+17707  0    CCCH      0                0         0         0              0                0                0                
+17707  0    MSG4      0                0         0         0              0                0                0                
+17707  0    CE        0                0         0         0              0                0                0                
+17707  0    1         0                0         496090    0              0                0                0                
+17707  0    2         0                0         496090    0              0                0                0                
+17707  9    4         0                0         148435    0              0                0                0                
+17723  0    RETX      1493             13        0         0              0                0                0                
+17723  0    CCCH      0                0         0         0              0                0                0                
+17723  0    MSG4      0                0         0         0              0                0                0                
+17723  0    CE        0                0         0         0              0                0                0                
+17723  0    1         0                0         496090    0              0                0                0                
+17723  0    2         0                0         496090    0              0                0                0                
+17723  9    4         334698           2434      148435    0              0                0                0                
+17752  0    RETX      6680             64        0         0              0                0                0                
+17752  0    CCCH      0                0         0         0              0                0                0                
+17752  0    MSG4      0                0         0         0              0                0                0                
+17752  0    CE        0                0         0         0              0                0                0                
+17752  0    1         0                0         496090    0              0                0                0                
+17752  0    2         0                0         496090    0              0                0                0                
+17752  9    4         369690           2686      148435    0              0                0                0                
+
+---------------------------------------------------------------------------------------------
+                      UE Level UL PFS SCH KPI
+---------------------------------------------------------------------------------------------
+UE-ID  UL-Occ  TXOcc-Msg3-RETX TXOcc-HQ-RETX TXOcc-MSG3-Q TXOcc-SR-Q  TXOcc-SRB-Q  TXOcc-IMS-Q  TXOcc-VoNR-Q  TXOcc-GBR-Q  TXOcc-NGBR-Q  CQI-HIST-0  CQI-HIST-1  CQI-HIST-2  SRVD-HIST-0   SRVD-HIST-1   SRVD-HIST-2   UE-PFS-PRIO-HIST-0   UE-PFS-PRIO-HIST-1   UE-PFS-PRIO-HIST-2   PRB-MAX-SUCC   PRB-MAX_FAIL   
+17575  0       0               0             0            0           0            0            0             0            0             100         0           0           0             0             100           0                    0                    0                    0              0              
+17692  8002    0               6002          0            0           0            0            0             0            2000          100         0           0           0             100           0             2000                 0                    0                    0              0              
+17693  221     0               0             0            221         0            0            0             0            0             100         0           0           0             0             100           0                    0                    221                  0              0              
+17707  7991    0               5995          0            0           0            0            0             0            1996          100         0           0           0             100           0             1996                 0                    0                    0              0              
+17723  7820    0               0             0            19          0            0            0             0            7820          100         0           0           11            89            0             7895                 0                    24                   1330           0              
+17752  7919    0               0             0            0           0            0            0             0            7919          101         0           0           22            79            0             7989                 0                    0                    1810           0              
+
+---------------------------------------------------------------------------------------------
+                      UL LCG Level PFS SCH KPI
+---------------------------------------------------------------------------------------------
+UE-ID  LCG-ID     BSR-RPTD         BO-SRVD          CS-CAUSE  GBR-MISS-CNT   GBR-PRIO-HIST-0  GBR-PRIO-HIST-1  GBR-PRIO-HIST-2  
+17575  RETX      0                0                0         0              0                0                0                
+17575  MSG5      0                0                0         0              0                0                0                
+17575  SR        0                0                0         0              0                0                0                
+17575  0         0                0                0         0              0                0                0                
+17575  2         0                0                0         0              0                0                0                
+17692  RETX      0                12297810         6002      0              0                0                0                
+17692  MSG5      0                0                0         0              0                0                0                
+17692  SR        0                0                0         0              0                0                0                
+17692  0         0                0                0         0              0                0                0                
+17692  2         0                0                2000      0              0                0                0                
+17693  RETX      0                0                0         0              0                0                0                
+17693  MSG5      0                0                0         0              0                0                0                
+17693  SR        0                55250            221       0              0                0                0                
+17693  0         0                0                0         0              0                0                0                
+17693  2         0                0                0         0              0                0                0                
+17707  RETX      0                12278571         5995      0              0                0                0                
+17707  MSG5      0                0                0         0              0                0                0                
+17707  SR        0                0                0         0              0                0                0                
+17707  0         0                0                0         0              0                0                0                
+17707  2         0                0                1996      0              0                0                0                
+17723  RETX      0                0                0         0              0                0                0                
+17723  MSG5      0                0                0         0              0                0                0                
+17723  SR        0                4750             19        0              0                0                0                
+17723  0         0                0                0         0              0                0                0                
+17723  2         22193946         10086170         7801      0              0                0                0                
+17752  RETX      0                0                0         0              0                0                0                
+17752  MSG5      0                0                0         0              0                0                0                
+17752  SR        0                0                0         0              0                0                0                
+17752  0         0                0                0         0              0                0                0                
+17752  2         24781336         12543141         7919      0              0                0                0                
+
+---------------------------------------------------------------------------------------------
+                       RLC RB Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID     RB-ID     RB-TYPE   RB-MODE    DL-RX          DL-TX          DL-DROP        CURR-DBS       THR-HIT        DL-TX-SEG      STATUS-PDU-TX  DL-DISCARDED   DL-SEGMENTED   TOT-BO-SNT     NEW-BO-SENT    RETX-BO-SENT   DLGRANT-RCVD   DL-TB-SENT     NEWTX-TB-SENT  RETX-TB-SENT   UL-RX          STATUS-PDU-RX     UL-RX-COMPLETE      UL-RX-SEG      UL-RX-SEG-REASSEMBLE        UL-TX          UL-DISCARDED   REASSEMBLY-TMR-EXP  UL-INVALID-PKT      UL-OUT-OF-SEQ-DROP  DL-INVALID-PDU-DISCARD
+
+17575     1         1         2          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+17575     2         0         3          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+
+17692     1         1         2          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+17692     2         0         3          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+
+17693     1         1         2          46823          46824          0              0              0              7878           0              0              0              0              67144182       0              67691474       67139424       0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+17693     2         0         3          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+
+17707     1         1         2          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+17707     2         0         3          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+
+17723     1         1         2          3691           3691           0              0              0              178            0              0              0              0              172278         0              334698         169477         0              0              10750          0                 3908                6842           6841                        7327           0              0                   0                   0                   0                   
+17723     2         0         3          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+
+17752     1         1         2          4228           4228           0              0              0              265            0              0              0              0              196744         0              369690         193841         0              0              12089          0                 4566                7523           7523                        8327           0              0                   0                   0                   0                   
+17752     2         0         3          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+
+
+---------------------------------------------------------------------------------------------
+                       UE EGTP NRUP RLC Tx Pkts statistics
+---------------------------------------------------------------------------------------------
+UE-ID    RB-ID    DL-TX-PKT    PROC-FAILED    DROP-EGTP-RESET    NRUP-TX-RCV    DROP-RESET    DROP-RAB-PROC-FAIL    DROP-RAB-NOT-FOUND    NRUP-DECODE-FAIL    RLC-ENQ-FAIL    NRUP-SUCC-PROC        RLC-SDU-RCVD    DROP-SDU-QUEUE-FULL    SDU-ADDED-TO-QUEUE   SDU-DROPPED    SDU-SENT-TO-UE    
+
+17575    1        0              0             0                    0                0             0                     0                     0                   0               0                     791             0                      1                    0              3                 
+17692    1        0              0             0                    0                0             0                     0                     0                   0               0                     502419          0                      1                    0              3                 
+17693    1        0              0             0                    0                0             0                     0                     0                   0               0                     545971          0                      1                    0              3                 
+17707    1        0              0             0                    0                0             0                     0                     0                   0               0                     572240          0                      1                    0              5                 
+17723    1        0              0             0                    0                0             0                     0                     0                   0               0                     361841          0                      1                    0              3                 
+17752    1        0              0             0                    0                0             0                     0                     0                   0               0                     72384           0                      1                    0              3                 
+
+---------------------------------------------------------------------------------------------
+                       UE Persistant Statistics
+---------------------------------------------------------------------------------------------
+UE-ID     RB-ID     NSSAI-ID  NUM-DDDS  NUM-ZERO-DDDS  NUM-POLL-BIT   LAST-RPT-DBS   HIGH-TX-SN     HIGH-RETX-SN   DDDS-TYPE      PKT-RCVD-LOWTHR  PKT-DROP-FLWCTL  PKT-PROC-FLWCTL  SDU_QUEUE_SIZE   LWR-THRS-FLWCTL  UPR-THRS-FLWCTL  RLC-BO    SCH-BO    SCH-TOTAL-BO   NUM-CRNTI-CE   NUM-SR-ACT     
+
+17575     1         1         760       0              0              2700000        790            0              4              0                0                3                0                200              400              0         0         0              0              0              
+17692     1         1         85593     0              0              2700000        43666          0              4              0                0                3                0                200              400              0         0         0              0              65             
+17693     1         1         7778      0              0              2694000        21667          0              4              0                0                3                0                200              400              4218      4235      4235           0              13026          
+17707     1         1         88664     0              0              2700000        47951          0              4              0                0                6                0                200              400              0         0         0              0              14285          
+17723     1         1         61903     0              0              2700000        34158          0              4              0                0                3                0                200              400              0         0         0              0              15392          
+17752     1         1         11250     0              0              2700000        6844           0              4              0                0                3                0                200              400              0         0         0              0              285            
+
+---------------------------------------------------------------------------------------------
+                       UE Persistant PUCCH Statistics
+---------------------------------------------------------------------------------------------
+UE-ID     CELL-ID   RECP-HQ   RECP-SR   RECP-CSI  RECP-HQ/SR  RECP-HQ/CSI   RECP-CSI/SR   RECP-HQ/CSI/SR UCI-HQ    UCI-SR    UCI-CSI   UCI-HQ/SR   UCI-HQ/CSI    UCI-CSI/SR    UCI-HQ/CSI/SR       UCI-SR/MUX_HQ_SR    UCI-SR/MUX_CSI_SR   UCI-SR/MUX_HQ_CSI_SR     UCI-HQ/MUX_HQ_SR    UCI-HQ/MUX_HQ_CSI   UCI-HQ/MUX_HQ_CSI_SR     UCI-CSI/MUX_CSI_SR  UCI-CSI/MUX_HQ_CSI  UCI-CSI/MUX_HQ_CSI_SR    POS-RCVD  POS-SCH   
+
+17575     1         927       1762874   0         578         0             0             0              1505      216901    0         0           0             0             0                   0                   0                   0                        578                 0                   0                        0                   0                   0                        216901    216901    
+17692     1         400897    649       0         126         0             0             0              401023    76        0         0           0             0             0                   19                  0                   0                        126                 0                   0                        0                   0                   0                        76        76        
+17693     1         245143    47899     0         0           0             0             0              245140    15178     0         0           0             0             0                   0                   0                   0                        0                   0                   0                        0                   0                   0                        15178     15178     
+17707     1         374633    23965     0         33          0             0             0              374666    14516     0         0           0             0             0                   3                   0                   0                        33                  0                   0                        0                   0                   0                        14516     14516     
+17723     1         240512    26913     0         10          0             0             0              240520    15404     0         0           0             0             0                   1                   0                   0                        10                  0                   0                        0                   0                   0                        15404     15404     
+17752     1         46931     3539      0         1           0             0             0              46930     305       0         0           0             0             0                   0                   0                   0                        1                   0                   0                        0                   0                   0                        305       305       
+
+---------------------------------------------------------------------------------------------
+                       UE RLC Tx PDU statistics
+---------------------------------------------------------------------------------------------
+UE-ID     RB-ID     SUCC-TX   SUCC-RTX-1  SUCC-RTX-2  SUCC-RTX-3  SUCC-RTX-4  SUCC-RTX-5  SUCC-RTX-6  SUCC-RTX-7  SUCC-RTX-8  SUCC-RTX-9  SUCC-RTX-10 SUCC-RTX-11 SUCC-RTX-12 SUCC-RTX-13 SUCC-RTX-14 SUCC-RTX-15 SUCC-RTX-16 SUCC-RTX-17 SUCC-RTX-18 SUCC-RTX-19 SUCC-RTX-20 SUCC-RTX-21 SUCC-RTX-22 SUCC-RTX-23 SUCC-RTX-24 SUCC-RTX-25 SUCC-RTX-26 SUCC-RTX-27 SUCC-RTX-28 SUCC-RTX-29 SUCC-RTX-30 SUCC-RTX-31 SUCC-RTX-32 
+
+17575     1         3           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           
+17692     1         3           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           
+17693     1         3           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           
+17707     1         5           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           
+17723     1         3           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           
+17752     1         3           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           
+
+---------------------------------------------------------------------------------------------
+                UE Level UL Sync Loss and Recovery Statistics  
+---------------------------------------------------------------------------------------------
+UE-ID     UL-OutOfSync  UL-InSync     UL-UnRecov    PdcchOr-Schd      PdcchOr-Retry-1   PdcchOr-Retry-2   PdcchOr-Retry-3   PdcchOr-Retry-4   
+
+17575     0             0             0             0              0                 0                 0                 0                 
+17692     0             0             0             0              0                 0                 0                 0                 
+17693     0             0             0             0              0                 0                 0                 0                 
+17707     0             0             0             0              0                 0                 0                 0                 
+17723     0             0             0             0              0                 0                 0                 0                 
+17752     0             0             0             0              0                 0                 0                 0                 
+
+---------------------------------------------------------------------------------------------
+                       UE EGTP NRUP RLC Tx Pkts statistics
+---------------------------------------------------------------------------------------------
+UE-ID    RB-ID    DL-TX-PKT    PROC-FAILED    DROP-EGTP-RESET    NRUP-TX-RCV    DROP-RESET    DROP-RAB-PROC-FAIL    DROP-RAB-NOT-FOUND    NRUP-DECODE-FAIL    RLC-ENQ-FAIL    NRUP-SUCC-PROC        RLC-SDU-RCVD    DROP-SDU-QUEUE-FULL    SDU-ADDED-TO-QUEUE   SDU-DROPPED    SDU-SENT-TO-UE    
+
+17575    1        0              0             0                    0                0             0                     0                     0                   0               0                     791             0                      1                    0              0                 
+17692    1        0              0             0                    0                0             0                     0                     0                   0               0                     502419          0                      1                    0              0                 
+17693    1        0              0             0                    0                0             0                     0                     0                   0               0                     545971          0                      1                    0              0                 
+17707    1        0              0             0                    0                0             0                     0                     0                   0               0                     572240          0                      1                    0              0                 
+17723    1        0              0             0                    0                0             0                     0                     0                   0               0                     361841          0                      1                    0              0                 
+17752    1        0              0             0                    0                0             0                     0                     0                   0               0                     72384           0                      1                    0              0                 
+
+
+MEMORY-STATS:PERIODIC
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Pool ID                : 0
+Pool Mem Block Details : 
+------------------------------------------------------------------------------------------------------------------------------------------------
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+80        5000               140           Heap       6                8                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        9193         
+   3    WORKER_0_2        5934         
+   4    WORKER_1_1        9350         
+   5    PHY_RECV          2548         
+   6    CLI_AGENT         0            
+   8    UDP_RX            2836         
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   139              0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+2048      500                400           Heap       6                8                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              498          
+   2    WORKER_0_1        164          
+   3    WORKER_0_2        681          
+   4    WORKER_1_1        623          
+   5    PHY_RECV          979          
+   6    CLI_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   55               0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+2288      50                 20            Heap       2                3                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        0            
+   4    WORKER_1_1        85           
+   5    PHY_RECV          15           
+   6    CLI_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   0                0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+4096      250                400           Heap       2                3                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        0            
+   4    WORKER_1_1        291          
+   5    PHY_RECV          208          
+   6    CLI_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   1                0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+10240     50                 4000          Heap       86               89               0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        54           
+   3    WORKER_0_2        77           
+   4    WORKER_1_1        71           
+   5    PHY_RECV          29           
+   6    CLI_AGENT         0            
+   8    UDP_RX            18           
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   4051             0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+14528     50                 100           Heap       82               83               0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        0            
+   4    WORKER_1_1        66           
+   5    PHY_RECV          34           
+   6    CLI_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   4000             0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+20480     50                 20            Heap       0                0                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        0            
+   4    WORKER_1_1        0            
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   0                0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+32768     25                 40            Heap       0                0                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        0            
+   4    WORKER_1_1        0            
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   0                0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+1024000   20                 100           Heap       1                1                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        0            
+   4    WORKER_1_1        18           
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   2                0              0              0              0              
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Pool ID                : 1
+Pool Mem Block Details : 
+------------------------------------------------------------------------------------------------------------------------------------------------
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+576       10240              84            Heap       10               13               0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               10239        
+   1    MAIN              10161        
+   2    WORKER_0_1        15972        
+   3    WORKER_0_2        12940        
+   4    WORKER_1_1        18750        
+   5    PHY_RECV          3757         
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         10241        
+   8    UDP_RX            10239        
+   9    SCTP              5332         
+   10   TMR_MGR           2439         
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   2330             0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+2368      10240              32            Heap       6                6                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              10239        
+   2    WORKER_0_1        9485         
+   3    WORKER_0_2        9630         
+   4    WORKER_1_1        11313        
+   5    PHY_RECV          10200        
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         10234        
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   339              0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+8512      1024               24            Heap       5                5                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        804          
+   3    WORKER_0_2        1001         
+   4    WORKER_1_1        1604         
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         1022         
+   8    UDP_RX            0            
+   9    SCTP              619          
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   70               0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+80000     1024               12            Heap       5                6                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              1023         
+   2    WORKER_0_1        529          
+   3    WORKER_0_2        658          
+   4    WORKER_1_1        1799         
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         1022         
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   89               0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+127860    10                 100           Heap       81               82               0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              2            
+   2    WORKER_0_1        8            
+   3    WORKER_0_2        9            
+   4    WORKER_1_1        8            
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   783              0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+350000    10                 100           Heap       8                9                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        13           
+   3    WORKER_0_2        16           
+   4    WORKER_1_1        11           
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   40               0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+5263616   5                  100           Heap       2                2                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        2            
+   4    WORKER_1_1        0            
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         4            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   4                0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+6145280   1                  5             Heap       1                1                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        0            
+   4    WORKER_1_1        0            
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   1                0              0              0              0              
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+#############################################################################################
+                       Software RAD - DU ver 03.00.00
+#############################################################################################
+#############################################################################################
+                       GNB DU Statistics  Thu Nov 28 00:00:02 2024
+#############################################################################################
+
+---------------------------------------------------------------------------------------------
+                       DU Control Plane Cummulative Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID   HANDOUT-TRIG        HANDOUT-SUCC        HANDOUT-FAIL        RRC-RES-TRIG        HANDIN-TRIG         HANDIN-SUCC         HANDIN-FAIL         INTRA-HO-TRIG       INTRA-HO-SUCC       INTRA-HO-FAIL       
+1         0                   0                   0                   0                   0                   0                   0                   0                   0                   0                   
+
+---------------------------------------------------------------------------------------------
+                       Error Cummulative Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID   PDSCH_INFO_WO_TX_DATA
+1         0         
+
+---------------------------------------------------------------------------------------------
+                       RACH Cummulative Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID   Cfra-Cfgd Cbra-Cfgd Pmbl-Dctd Pmbl-Igrd Cfra-Pmbl-Dctd Cbra-Pmbl-Dctd Pmbl-Srvd Num-RAR   Msg3-Ded-Succ  Msg3-NonDed-Succ    Msg3-Ded-Fail  Msg3-NonDed-Fail    Msg3-Crnti-CE  Num-RAR-Backoff  Num-RAR-Grant-GroupA  Num-RAR-Grant-GroupB  
+1         0         0         2332      71        0              2261           2261      1853      0                   871            0                   1388           0              0                733                   1528                  
+
+---------------------------------------------------------------------------------------------
+                Cell Level UL Sync Loss and Recovery Statistics  
+---------------------------------------------------------------------------------------------
+CELL-ID   Ul-Out-of-SyncUl-In-Sync    Ul-UnRecov    PdcchOr-Schd   PdcchOr-CFRA-Pmbl PdcchOr-CBRA-Pmbl PdcchOr-Retry-1   PdcchOr-Retry-2   PdcchOr-Retry-3   PdcchOr-Retry-4   
+1         0             0             0             0              0                 0                 0                 0                 0                 0                 
+
+---------------------------------------------------------------------------------------------
+                       F1AP Message Statistics
+---------------------------------------------------------------------------------------------
+DU:CU      F1-SETUP-REQUEST                                           1
+CU:DU      F1-SETUP-RESPONSE                                          1
+CU:DU      F1-SETUP-FAILURE                                           0
+CU:DU      F1-RESET                                                   0
+DU:CU      F1-RESET-ACKNOWLEDGE                                       0
+DU:CU      GNB-DU-CONFIG-UPDATE                                       2
+CU:DU      GNB-DU-CONFIG-UPDATE-ACKNOWLEDGE                           2
+CU:DU      GNB-DU-CONFIG-UPDATE-FAILURE                               0
+CU:DU      GNB-CU-CONFIG-UPDATE                                       1
+DU:CU      GNB-CU-CONFIG-UPDATE-ACKNOWLEDGE                           1
+CU:DU      GNB-DU-RESOURCE-COORDINATION-REQUEST                       0
+DU:CU      GNB-DU-RESOURCE-COORDINATION-REQUEST-ACKNOWLEDGE           0
+CU:DU      UE-CONTEXT-SETUP-REQUEST                                   120
+DU:CU      UE-CONTEXT-SETUP-RESPONSE                                  118
+DU:CU      UE-CONTEXT-SETUP-FAILURE                                   2
+DU:CU      UE-CONTEXT-RELEASE-REQUEST                                 328
+CU:DU      UE-CONTEXT-RELEASE-COMMAND                                 671
+DU:CU      UE-CONTEXT-RELEASE-COMPLETE                                500
+CU:DU      UE-CONTEXT-MODIFICATION-REQUEST                            117
+DU:CU      UE-CONTEXT-MODIFICATION-RESPONSE                           117
+DU:CU      UE-CONTEXT-MODIFICATION-FAILURE                            0
+DU:CU      UE-CONTEXT-MODIFICATION-REQUIRED                           0
+CU:DU      UE-CONTEXT-MODIFICATION-CONFIRM                            0
+CU:DU      DL-RRC-MESSAGE-TRANSFER                                    1541
+DU:CU      UL-RRC-MESSAGE-TRANSFER                                    954
+DU:CU      INITIAL-UL-RRC-MESSAGE-TRANSFER                            506
+CU:DU      WRITE-REPLACE-WARNING-REQUEST                              0
+DU:CU      WRITE-REPLACE-WARNING-RESPONSE                             0
+
+
+---------------------------------------------------------------------------------------------
+                       DU User Plane Cummulative Statistics
+---------------------------------------------------------------------------------------------
+   DROP-BUFFER-FULL                                                   0
+  DLSDAP-DEQ-FAILED                                                   0
+  ULSDAP-ENQ-FAILED                                                   0
+  ULSDAP-DEQ-FAILED                                                   0
+  DLPDCP-ENQ-FAILED                                                   0
+  DLPDCP-DEQ-FAILED                                                   0
+  DLPDCP-FWDQ-DEQ-FAILED                                              0
+  DLPDCP-CIPHQ-ENQ-FAILED                                             0
+  DLPDCP-CIPHQ-DEQ-FAILED                                             0
+  ULPDCP-CIPHQ-ENQ-FAILED                                             0
+  ULPDCP-CIPHQ-DEQ-FAILED                                             0
+  NRUP-DL-ENQUEUE-FAILED                                              0
+  NRUP-DL-DEQUEUE-FAILED                                              0
+  EGTP-UL-ENQUEUE-FAILED                                              0
+  EGTP-UL-DEQUEUE-FAILED                                              0
+   RLC-DATREQ-TRIG1                                                   0
+   RLC-DATREQ-TRIG2                                                   0
+   RLC-DATREQ-PROC1                                                   83888876
+   RLC-DATREQ-PROC2                                                   83888876
+   RLC-ENQ-FAILED                                                     0
+   RLC-SDU-DQ-FAILED                                                  0
+   DROP-SDU-QUEUE-FULL                                                0
+   DROP-MEM-ALLOC-FAILED                                              0
+   DROP-TUNNEL-NOT-FOUND                                              0
+   DROP-RAB-NOT-FOUND                                                 0
+   DROP-REEST-IN-PROGRESS                                             0
+   DROP-DECODE-FAIL                                                   0
+   MAC-DECODE-FAIL                                                    15
+   DROP-UDP-RX-MEM-ALLOC-FAIL                                         0
+
+
+UpTime : 74478 sec
+#############################################################################################
+                       GNB DU Statistics  
+#############################################################################################
+---------------------------------------------------------------------------------------------
+                       DL Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID   CELL-DL-BANDWIDTH  CELL-UL-BANDWIDTH  AVG-DL-PRB  AVG-DL-PRB-BWP-0  AVG-DL-PRB-BWP-1  AVG-DL-PRB-BWP-2  AVG-DL-PRB-BWP-3  DL-OCC   DL-SUCC   DL-NEWTX    DL-RETX   DL-DTX   DL-NACK-RV[0]   DL-NACK-RV[1]   DL-NACK-RV[2]   DL-NACK-RV[3]   DL-DTX-RV[0]   DL-DTX-RV[1]   DL-DTX-RV[2]   DL-DTX-RV[3]   DL-BLER   
+1         0                  0                  42.92       42.92             0.00              0.00              0.00              12004    16131     16063       68        0        68              0               1               0               0              0              0              0              0         
+
+---------------------------------------------------------------------------------------------
+                       UL Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID   AVG-UL-PRB  AVG-UL-PRB-BWP-0  AVG-UL-PRB-BWP-1  AVG-UL-PRB-BWP-2  AVG-UL-PRB-BWP-3  UL-OCC   UL-SUCC   UL-NEWTX   UL-RETX   UL-DATIND   UL-BLER ERR-PUCCH-NODE ERR-PUCCH-MSGLEN 
+1         164         164               0                 0                 0                 0        31967     19969      11998     8505        50      0              0                
+
+---------------------------------------------------------------------------------------------
+                       Failure Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID   DL-OCC   DL-SUCC   TTI-ERR-MAJOR TTI-ERR-MINOR  DL-FAIL_0    DL-FAIL_1    DL-FAIL_2    DL-FAIL_3    DL-FAIL_4    DL-FAIL_5    DL-FAIL_6    DL-FAIL_7    DL-FAIL_8    DL-FAIL_9    DL-FAIL_10   DL-FAIL_11   DL-FAIL_12   DL-FAIL_13   DL-FAIL_14   DL-FAIL_15   DL-FAIL_16   DL-FAIL_17   DL-FAIL_18   DL-FAIL_19   DL-FAIL_20   DL-FAIL_21   DL-FAIL_22   DL-FAIL_23   DL-FAIL_24   DL-FAIL_25   DL-FAIL_26   
+1         12004    16131     0              0             414          0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            2478         0            0            0            
+
+---------------------------------------------------------------------------------------------
+                       Cell UE Per TTI(UE/TTI) Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID  DL-0    UL-0    DL-1    UL-1    DL-2    UL-2    DL-3    UL-3    DL-4    UL-4    DL-5    UL-5    DL-6    UL-6    DL-7    UL-7    DL-8    UL-8    
+1        0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       
+
+---------------------------------------------------------------------------------------------
+                      Cell UE Statistics for DL MU-MIMO
+---------------------------------------------------------------------------------------------
+CELL-ID  MU-MIMO-PAIR  MU-MIMO-PAIR-4LAYER MU-MIMO-PAIR-3LAYER MU-MIMO-PAIR-2LAYER 
+1        0             0                   0                   0                   
+
+---------------------------------------------------------------------------------------------
+      Cell Level SHORT TERM BLER Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID  DIR     BLER%    0.0%     <0.5%    <1.0%    <2.0%    <5.0%    <10.0%   <25.0%   <50.0%   <100.0%  
+1        DL      0.00     0        0        0        0        0        0        0        0        0        
+ 
+1        UL      0.00     0        0        0        0        0        0        0        0        0        
+
+---------------------------------------------------------------------------------------------
+      Cell Level LONG TERM BLER Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID  DIR     BLER%    0.0%     <0.5%    <1.0%    <2.0%    <5.0%    <10.0%   <25.0%   <50.0%   <100.0%  
+1        DL      0.00     0        0        0        0        0        0        0        0        0        
+ 
+1        UL      0.00     0        0        0        0        0        0        0        0        0        
+
+---------------------------------------------------------------------------------------------
+                       UE SCH:DRX Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID  CELL-ID  BEAM-ID  STRT-ON-DUR STRT-DL-INACTV STRT-UL-INACTV STRT-DL-RETX  STRT-UL-RETX  EXP-ON-DUR  EXP-INACTV  EXP-DL-RETX   EXP-UL-RETX   EXP-SHORT_CYCL  UE_INACT_TO_ACT   UE_ACT_TO_INACT   UE_DL_INACT_CNT   UE_UL_INACT_CNT   
+
+17575  1        0        0           0              0              0             0             0           0           0             0             0               0                 0                 0                 0                 
+17692  1        0        0           0              0              0             0             0           0           0             0             0               0                 0                 0                 0                 
+17693  1        0        0           0              0              0             0             0           0           0             0             0               0                 0                 0                 0                 
+17707  1        0        0           0              0              0             0             0           0           0             0             0               0                 0                 0                 0                 
+17723  1        0        0           0              0              0             0             0           0           0             0             0               0                 0                 0                 0                 
+17752  1        0        0           0              0              0             0             0           0           0             0             0               0                 0                 0                 0                 
+
+---------------------------------------------------------------------------------------------
+                       UE Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID     BEAM-ID   CSIRS-PORT   PCELL-ID  DL-PKT-RX   DL-TPT    UL-PKT-TX UL-TPT    DL-LC-1   DL-LC-2   DL-LC-3   DL-LC-4   UL-LC-1   UL-LC-2   UL-LC-3   UL-LC-4   DL-PADDING  UL-PADDING  DL-PRB    UL-PRB    NUM-SR    NUM-BSR-TMR    SCELL-ACT-CE   TA-CE     NUM-TA-TMR   TA        
+17575     0         0            1         0           0.0000    0         0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000      0.0000      0         0         0         0              0              0         0            0         
+17692     0         0            1         0           0.0000    0         0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000      0.0000      0         51        0         0              0              0         0            0         
+17693     0         0            1         46825       53.6397   0         0.0000    54.1550   0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.3201      0.1412      42        16        277       0              0              0         0            0         
+17707     0         0            1         0           0.0000    0         0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000    0.0000      0.0000      0         51        0         0              0              0         0            0         
+17723     0         0            1         3659        0.1296    7349      8.2612    0.2676    0.0000    0.0000    0.0000    8.2802    0.0000    0.0000    0.0000    0.1283      8.9039      1         69        18        0              0              0         0            0         
+17752     0         0            1         4030        0.1446    7822      8.7420    0.2908    0.0000    0.0000    0.0000    8.7624    0.0000    0.0000    0.0000    0.1352      9.2106      1         72        0         0              0              0         0            0         
+
+---------------------------------------------------------------------------------------------
+                       Cell Tpt Statistics
+---------------------------------------------------------------------------------------------
+CELL-ID  NUM-UE   SCH-DL  SCH-UL    
+1        6        54.71   17.04     
+
+Total Number of UEs  : 6
+	 EGTP DL Tpt : 53.91  UL Tpt 17.00
+	 X2 EGTP DL Tpt : 0.00  UL Tpt 0.00
+	 SCH  DL Tpt : 54.71  UL Tpt 17.04
+
+---------------------------------------------------------------------------------------------
+                       PUCCH Resource Allocation Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID  CELL-ID BWP-ID  GP-ID   SET-ID  SUCC    FAIL           
+17693  1       0       0       0       11040   38      
+17723  1       0       0       0       2431    3       
+17752  1       0       0       0       2660    0       
+
+---------------------------------------------------------------------------------------------
+                       PDCCH Resource Allocation Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID  CELL-ID BWP-ID  TYPE    CS-ID   SS-ID AGG-LVL  REQ             SUCC            FAIL      CANDT_TRIES    CANDT_NOT_AVL  CANDT_TRIES_F0 FAIL_PUCCH     FAIL_PUCCH_F0  FAIL_PUCCH_NON_F0   FAIL_MAX_CANDT   
+17693  1       0       0       1       3     2        11040           11040           0         13053          0              38             0              38             0                   0                
+17707  1       0       1       1       3     2        8028            0               32        10588          0              0              0              0              0                   32               
+17723  1       0       0       1       3     2        3745            2431            1314      9809           0              3              0              3              0                   1314             
+17723  1       0       1       1       3     2        7896            0               91        13837          0              0              0              0              0                   91               
+17752  1       0       0       1       3     2        3824            2660            1164      9543           0              0              0              0              0                   1164             
+17752  1       0       1       1       3     2        7922            0               35        9895           0              0              0              0              0                   35               
+
+---------------------------------------------------------------------------------------------
+                       PDSCH Rate Match Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID  CELL-ID BWP-ID  TOTAL       PBCH           CORESET        AVG-MCS   AVG-RATE-MATCH-MCS  AVG-EFF-CODE-RATE   PRB-INCREASED     FAIL-CNT 
+17575  1       0       0           0              0              0         0                   0                   0                 0         
+17692  1       0       0           0              0              0         0                   0                   0                 0         
+17693  1       0       0           0              0              0         0                   0                   0                 0         
+17707  1       0       0           0              0              0         0                   0                   0                 0         
+17723  1       0       0           0              0              0         0                   0                   0                 0         
+17752  1       0       0           0              0              0         0                   0                   0                 0         
+
+---------------------------------------------------------------------------------------------
+                       UE MAC-Scheduler Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID   CELL-ID   ON-SUL   DL-NEWTX  DL-RETX   ACK-TB[0] NACK-TB[0]  BLER-TB[0]  DTX-TB[0] ACK-TB[1] NACK-TB[1]  BLER-TB[1]  DTX-TB[1] DL-MCS  DL-RI-PER   DL-CQI-PER     UL-NEWTX  UL-RETX  UL-CRC-SUCC   UL-CRC-FAIL   UL-CRC-DTX   UL-CQI  UL-MCS  UL-RI   NUM-BSR   SHR-BSR ST-BSR  LNG-BSR LT-BSR  NUM-CSI   NUM-SRS   UL-BLER   
+17575   1         0        0         0         0         0           0           0         0         0           0           0         0       0           0              0         0        0             0             0            0       0       0       0         0       0       0       0       0         0         0         
+17692   1         0        0         0         0         0           0           0         0         0           0           0         0       0           0              2001      6002     0             8002          0            10      0       0       0         0       0       0       0       0         0         100       
+17693   1         0        11040     0         11042     0           0           0         0         0           0           0         9       1           8              277       0        277           0             0            10      9       0       277       277     0       0       0       0         0         0         
+17707   1         0        0         0         0         0           0           0         0         0           0           0         0       0           0              1999      5996     0             7994          0            10      0       0       0         0       0       0       0       0         0         100       
+17723   1         0        2426      5         2426      5           0           0         0         0           0           0         8       1           8              7805      0        7804          0             0            10      9       0       5452      1428    0       4024    0       0         0         0         
+17752   1         0        2597      64        2597      64          2           0         0         0           0           0         8       1           8              7887      0        7886          0             0            10      9       0       5372      1487    0       3885    0       0         0         0         
+
+---------------------------------------------------------------------------------------------
+                       UE SCH:UL POWER CONTROL PUCCH/PUSCH Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID  CELL-ID PUSCH-SNR   PHR         PH-VAL      PUSCH-TPC   PUSCH-TPC[0]   PUSCH-TPC[1]   PUSCH-TPC[2]   PUSCH-TPC[3]   UL-PRB-REQ  UL-PWR-PRB  PUCCH-SNR   PWR-DELTA   PUCCH-TPC   PUCCH-TPC[0]   PUCCH-TPC[1]   PUCCH-TPC[2]   PUCCH-TPC[3]   
+17575  1       0           255         255         0           0              0              0              0              0           0           0           0           0           0              0              0              0              
+17692  1       10          255         255         0           0              0              0              0              86          273         0           0           0           0              0              0              0              
+17693  1       33          255         255         0           0              0              0              0              129         273         53          -1          0           0              0              0              0              
+17707  1       10          255         255         0           0              0              0              0              86          273         0           0           0           0              0              0              0              
+17723  1       29          255         255         0           0              0              0              0              99          273         50          -1          0           0              0              0              0              
+17752  1       29          255         255         0           0              0              0              0              100         273         52          -1          0           0              0              0              0              
+
+---------------------------------------------------------------------------------------------
+                       UE SCH:UCI on PUCCH/PUSCH Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID  CELL-ID UC:EXPT UC:ACK    UC:NACK   UC:DTX    UC:CSI    US:EXPT US:ACK    US:NACK   US:DTX    HqBetaOff1     US:CSI         
+17575  1       0       0         0         0         0         0       0         0         0         0              0              
+17692  1       0       0         0         0         0         0       0         0         0         0              0              
+17693  1       7965    11042     0         0         0         0       0         0         0         0              0              
+17707  1       0       0         0         0         0         0       0         0         0         0              0              
+17723  1       2361    2426      5         0         0         0       0         0         0         0              0              
+17752  1       2574    2597      64        0         0         0       0         0         0         0              0              
+
+---------------------------------------------------------------------------------------------
+                      UE Level DL PFS SCH KPI
+---------------------------------------------------------------------------------------------
+UE-ID  DL-Occ  TXOcc-RETX-Q  TXOcc-MSG4-Q  TXOcc-CCCH-Q  TXOcc-CE-Q  TXOcc-SRB-Q  TXOcc-IMS-Q  TXOcc-VoNR-Q  TXOcc-GBR-Q  TXOcc-NGBR-Q  CQI-HIST-0  CQI-HIST-1  CQI-HIST-2  SRVD-HIST-0   SRVD-HIST-1   SRVD-HIST-2   UE-PFS-PRIO-HIST-0   UE-PFS-PRIO-HIST-1   UE-PFS-PRIO-HIST-2   PRB-MAX-SUCC   PRB-MAX_FAIL   
+17575  0       0             0             0             0           0            0            0             0            0             100         0           0           0             0             100           0                    0                    0                    0              0              
+17692  0       0             0             0             0           0            0            0             0            0             100         0           0           0             0             100           0                    0                    0                    0              0              
+17693  11040   0             0             0             0           0            0            0             0            0             100         0           0           100           0             0             11172                0                    0                    11040          0              
+17707  0       0             0             0             0           0            0            0             0            0             100         0           0           0             0             100           0                    0                    0                    0              0              
+17723  2431    5             0             0             0           0            0            0             0            0             100         0           0           0             0             100           0                    2433                 0                    2426           0              
+17752  2660    63            0             0             0           0            0            0             0            0             100         0           0           0             0             100           0                    2607                 0                    2597           0              
+
+---------------------------------------------------------------------------------------------
+                     DL LC Level PFS SCH KPI
+---------------------------------------------------------------------------------------------
+UE-ID  5QI  LC-ID     BO-SRVD          CS-CAUSE  5QI-PRIO  GBR-MISS-CNT   GBR-PRIO-HIST-0  GBR-PRIO-HIST-1  GBR-PRIO-HIST-2  
+17575  0    RETX      0                0         0         0              0                0                0                
+17575  0    CCCH      0                0         0         0              0                0                0                
+17575  0    MSG4      0                0         0         0              0                0                0                
+17575  0    CE        0                0         0         0              0                0                0                
+17575  0    1         0                0         496090    0              0                0                0                
+17575  0    2         0                0         496090    0              0                0                0                
+17575  9    4         0                0         148435    0              0                0                0                
+17692  0    RETX      0                0         0         0              0                0                0                
+17692  0    CCCH      0                0         0         0              0                0                0                
+17692  0    MSG4      0                0         0         0              0                0                0                
+17692  0    CE        0                0         0         0              0                0                0                
+17692  0    1         0                0         496090    0              0                0                0                
+17692  0    2         0                0         496090    0              0                0                0                
+17692  9    4         0                0         148435    0              0                0                0                
+17693  0    RETX      0                0         0         0              0                0                0                
+17693  0    CCCH      0                0         0         0              0                0                0                
+17693  0    MSG4      0                0         0         0              0                0                0                
+17693  0    CE        0                0         0         0              0                0                0                
+17693  0    1         0                0         496090    0              0                0                0                
+17693  0    2         0                0         496090    0              0                0                0                
+17693  9    4         67697571         11040     148435    0              0                0                0                
+17707  0    RETX      0                0         0         0              0                0                0                
+17707  0    CCCH      0                0         0         0              0                0                0                
+17707  0    MSG4      0                0         0         0              0                0                0                
+17707  0    CE        0                0         0         0              0                0                0                
+17707  0    1         0                0         496090    0              0                0                0                
+17707  0    2         0                0         496090    0              0                0                0                
+17707  9    4         0                0         148435    0              0                0                0                
+17723  0    RETX      565              5         0         0              0                0                0                
+17723  0    CCCH      0                0         0         0              0                0                0                
+17723  0    MSG4      0                0         0         0              0                0                0                
+17723  0    CE        0                0         0         0              0                0                0                
+17723  0    1         0                0         496090    0              0                0                0                
+17723  0    2         0                0         496090    0              0                0                0                
+17723  9    4         334542           2426      148435    0              0                0                0                
+17752  0    RETX      6579             63        0         0              0                0                0                
+17752  0    CCCH      0                0         0         0              0                0                0                
+17752  0    MSG4      0                0         0         0              0                0                0                
+17752  0    CE        0                0         0         0              0                0                0                
+17752  0    1         0                0         496090    0              0                0                0                
+17752  0    2         0                0         496090    0              0                0                0                
+17752  9    4         363549           2597      148435    0              0                0                0                
+
+---------------------------------------------------------------------------------------------
+                      UE Level UL PFS SCH KPI
+---------------------------------------------------------------------------------------------
+UE-ID  UL-Occ  TXOcc-Msg3-RETX TXOcc-HQ-RETX TXOcc-MSG3-Q TXOcc-SR-Q  TXOcc-SRB-Q  TXOcc-IMS-Q  TXOcc-VoNR-Q  TXOcc-GBR-Q  TXOcc-NGBR-Q  CQI-HIST-0  CQI-HIST-1  CQI-HIST-2  SRVD-HIST-0   SRVD-HIST-1   SRVD-HIST-2   UE-PFS-PRIO-HIST-0   UE-PFS-PRIO-HIST-1   UE-PFS-PRIO-HIST-2   PRB-MAX-SUCC   PRB-MAX_FAIL   
+17575  0       0               0             0            0           0            0            0             0            0             100         0           0           0             0             100           0                    0                    0                    0              0              
+17692  8003    0               6002          0            0           0            0            0             0            2001          100         0           0           0             100           0             2001                 0                    0                    0              0              
+17693  277     0               0             0            277         0            0            0             0            0             100         0           0           0             0             100           0                    0                    277                  0              0              
+17707  7995    0               5996          0            0           0            0            0             0            1999          100         0           0           0             100           0             1999                 0                    0                    0              0              
+17723  7805    0               0             0            18          0            0            0             0            7805          100         0           0           10            90            0             7886                 0                    21                   1410           0              
+17752  7887    0               0             0            0           0            0            0             0            7887          100         0           0           13            87            0             7973                 0                    0                    1670           0              
+
+---------------------------------------------------------------------------------------------
+                      UL LCG Level PFS SCH KPI
+---------------------------------------------------------------------------------------------
+UE-ID  LCG-ID     BSR-RPTD         BO-SRVD          CS-CAUSE  GBR-MISS-CNT   GBR-PRIO-HIST-0  GBR-PRIO-HIST-1  GBR-PRIO-HIST-2  
+17575  RETX      0                0                0         0              0                0                0                
+17575  MSG5      0                0                0         0              0                0                0                
+17575  SR        0                0                0         0              0                0                0                
+17575  0         0                0                0         0              0                0                0                
+17575  2         0                0                0         0              0                0                0                
+17692  RETX      0                12297330         6002      0              0                0                0                
+17692  MSG5      0                0                0         0              0                0                0                
+17692  SR        0                0                0         0              0                0                0                
+17692  0         0                0                0         0              0                0                0                
+17692  2         0                0                2001      0              0                0                0                
+17693  RETX      0                0                0         0              0                0                0                
+17693  MSG5      0                0                0         0              0                0                0                
+17693  SR        0                69250            277       0              0                0                0                
+17693  0         0                0                0         0              0                0                0                
+17693  2         0                0                0         0              0                0                0                
+17707  RETX      0                12280332         5996      0              0                0                0                
+17707  MSG5      0                0                0         0              0                0                0                
+17707  SR        0                0                0         0              0                0                0                
+17707  0         0                0                0         0              0                0                0                
+17707  2         0                0                1999      0              0                0                0                
+17723  RETX      0                0                0         0              0                0                0                
+17723  MSG5      0                0                0         0              0                0                0                
+17723  SR        0                4500             18        0              0                0                0                
+17723  0         0                0                0         0              0                0                0                
+17723  2         19822022         10406579         7787      0              0                0                0                
+17752  RETX      0                0                0         0              0                0                0                
+17752  MSG5      0                0                0         0              0                0                0                
+17752  SR        0                0                0         0              0                0                0                
+17752  0         0                0                0         0              0                0                0                
+17752  2         19448938         11848494         7887      0              0                0                0                
+
+---------------------------------------------------------------------------------------------
+                       RLC RB Instantaneous Statistics
+---------------------------------------------------------------------------------------------
+UE-ID     RB-ID     RB-TYPE   RB-MODE    DL-RX          DL-TX          DL-DROP        CURR-DBS       THR-HIT        DL-TX-SEG      STATUS-PDU-TX  DL-DISCARDED   DL-SEGMENTED   TOT-BO-SNT     NEW-BO-SENT    RETX-BO-SENT   DLGRANT-RCVD   DL-TB-SENT     NEWTX-TB-SENT  RETX-TB-SENT   UL-RX          STATUS-PDU-RX     UL-RX-COMPLETE      UL-RX-SEG      UL-RX-SEG-REASSEMBLE        UL-TX          UL-DISCARDED   REASSEMBLY-TMR-EXP  UL-INVALID-PKT      UL-OUT-OF-SEQ-DROP  DL-INVALID-PDU-DISCARD
+
+17575     1         1         2          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+17575     2         0         3          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+
+17692     1         1         2          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+17692     2         0         3          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+
+17693     1         1         2          46825          46827          0              0              0              7872           0              0              0              0              67147050       0              67697571       67141180       0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+17693     2         0         3          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+
+17707     1         1         2          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+17707     2         0         3          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+
+17723     1         1         2          3659           3658           0              0              0              171            0              0              0              0              169382         0              334542         166533         0              0              10780          0                 3919                6861           6861                        7349           0              0                   0                   0                   0                   
+17723     2         0         3          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+
+17752     1         1         2          4030           4029           0              0              0              244            0              0              0              0              188856         0              363549         186001         0              0              11451          0                 4194                7257           7257                        7822           0              0                   0                   0                   0                   
+17752     2         0         3          0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0              0                 0                   0              0                           0              0              0                   0                   0                   0                   
+
+
+---------------------------------------------------------------------------------------------
+                       UE EGTP NRUP RLC Tx Pkts statistics
+---------------------------------------------------------------------------------------------
+UE-ID    RB-ID    DL-TX-PKT    PROC-FAILED    DROP-EGTP-RESET    NRUP-TX-RCV    DROP-RESET    DROP-RAB-PROC-FAIL    DROP-RAB-NOT-FOUND    NRUP-DECODE-FAIL    RLC-ENQ-FAIL    NRUP-SUCC-PROC        RLC-SDU-RCVD    DROP-SDU-QUEUE-FULL    SDU-ADDED-TO-QUEUE   SDU-DROPPED    SDU-SENT-TO-UE    
+
+17575    1        0              0             0                    0                0             0                     0                     0                   0               0                     791             0                      1                    0              3                 
+17692    1        0              0             0                    0                0             0                     0                     0                   0               0                     502419          0                      1                    0              3                 
+17693    1        0              0             0                    0                0             0                     0                     0                   0               0                     592794          0                      1                    0              3                 
+17707    1        0              0             0                    0                0             0                     0                     0                   0               0                     572240          0                      1                    0              5                 
+17723    1        0              0             0                    0                0             0                     0                     0                   0               0                     365499          0                      1                    0              3                 
+17752    1        0              0             0                    0                0             0                     0                     0                   0               0                     76412           0                      1                    0              3                 
+
+---------------------------------------------------------------------------------------------
+                       UE Persistant Statistics
+---------------------------------------------------------------------------------------------
+UE-ID     RB-ID     NSSAI-ID  NUM-DDDS  NUM-ZERO-DDDS  NUM-POLL-BIT   LAST-RPT-DBS   HIGH-TX-SN     HIGH-RETX-SN   DDDS-TYPE      PKT-RCVD-LOWTHR  PKT-DROP-FLWCTL  PKT-PROC-FLWCTL  SDU_QUEUE_SIZE   LWR-THRS-FLWCTL  UPR-THRS-FLWCTL  RLC-BO    SCH-BO    SCH-TOTAL-BO   NUM-CRNTI-CE   NUM-SR-ACT     
+
+17575     1         1         760       0              0              2700000        790            0              4              0                0                3                0                200              400              0         0         0              0              0              
+17692     1         1         85593     0              0              2700000        43666          0              4              0                0                3                0                200              400              0         0         0              0              65             
+17693     1         1         8445      0              0              2697000        2967           0              4              0                0                3                0                200              400              0         0         0              0              13026          
+17707     1         1         88664     0              0              2700000        47951          0              4              0                0                6                0                200              400              0         0         0              0              14285          
+17723     1         1         62528     0              0              2700000        37818          0              4              0                0                3                0                200              400              0         0         0              0              15410          
+17752     1         1         11883     0              0              2700000        10875          0              4              0                0                3                0                200              400              0         0         0              0              285            
+
+---------------------------------------------------------------------------------------------
+                       UE Persistant PUCCH Statistics
+---------------------------------------------------------------------------------------------
+UE-ID     CELL-ID   RECP-HQ   RECP-SR   RECP-CSI  RECP-HQ/SR  RECP-HQ/CSI   RECP-CSI/SR   RECP-HQ/CSI/SR UCI-HQ    UCI-SR    UCI-CSI   UCI-HQ/SR   UCI-HQ/CSI    UCI-CSI/SR    UCI-HQ/CSI/SR       UCI-SR/MUX_HQ_SR    UCI-SR/MUX_CSI_SR   UCI-SR/MUX_HQ_CSI_SR     UCI-HQ/MUX_HQ_SR    UCI-HQ/MUX_HQ_CSI   UCI-HQ/MUX_HQ_CSI_SR     UCI-CSI/MUX_CSI_SR  UCI-CSI/MUX_HQ_CSI  UCI-CSI/MUX_HQ_CSI_SR    POS-RCVD  POS-SCH   
+
+17575     1         927       1764875   0         578         0             0             0              1505      216901    0         0           0             0             0                   0                   0                   0                        578                 0                   0                        0                   0                   0                        216901    216901    
+17692     1         400897    649       0         126         0             0             0              401023    76        0         0           0             0             0                   19                  0                   0                        126                 0                   0                        0                   0                   0                        76        76        
+17693     1         253108    49625     0         0           0             0             0              253105    15455     0         0           0             0             0                   0                   0                   0                        0                   0                   0                        0                   0                   0                        15455     15455     
+17707     1         374633    23965     0         33          0             0             0              374666    14516     0         0           0             0             0                   3                   0                   0                        33                  0                   0                        0                   0                   0                        14516     14516     
+17723     1         242873    27088     0         10          0             0             0              242882    15422     0         0           0             0             0                   1                   0                   0                        10                  0                   0                        0                   0                   0                        15422     15422     
+17752     1         49504     3539      0         1           0             0             0              49503     305       0         0           0             0             0                   0                   0                   0                        1                   0                   0                        0                   0                   0                        305       305       
+
+---------------------------------------------------------------------------------------------
+                       UE RLC Tx PDU statistics
+---------------------------------------------------------------------------------------------
+UE-ID     RB-ID     SUCC-TX   SUCC-RTX-1  SUCC-RTX-2  SUCC-RTX-3  SUCC-RTX-4  SUCC-RTX-5  SUCC-RTX-6  SUCC-RTX-7  SUCC-RTX-8  SUCC-RTX-9  SUCC-RTX-10 SUCC-RTX-11 SUCC-RTX-12 SUCC-RTX-13 SUCC-RTX-14 SUCC-RTX-15 SUCC-RTX-16 SUCC-RTX-17 SUCC-RTX-18 SUCC-RTX-19 SUCC-RTX-20 SUCC-RTX-21 SUCC-RTX-22 SUCC-RTX-23 SUCC-RTX-24 SUCC-RTX-25 SUCC-RTX-26 SUCC-RTX-27 SUCC-RTX-28 SUCC-RTX-29 SUCC-RTX-30 SUCC-RTX-31 SUCC-RTX-32 
+
+17575     1         3           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           
+17692     1         3           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           
+17693     1         3           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           
+17707     1         5           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           
+17723     1         3           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           
+17752     1         3           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           
+
+---------------------------------------------------------------------------------------------
+                UE Level UL Sync Loss and Recovery Statistics  
+---------------------------------------------------------------------------------------------
+UE-ID     UL-OutOfSync  UL-InSync     UL-UnRecov    PdcchOr-Schd      PdcchOr-Retry-1   PdcchOr-Retry-2   PdcchOr-Retry-3   PdcchOr-Retry-4   
+
+17575     0             0             0             0              0                 0                 0                 0                 
+17692     0             0             0             0              0                 0                 0                 0                 
+17693     0             0             0             0              0                 0                 0                 0                 
+17707     0             0             0             0              0                 0                 0                 0                 
+17723     0             0             0             0              0                 0                 0                 0                 
+17752     0             0             0             0              0                 0                 0                 0                 
+
+---------------------------------------------------------------------------------------------
+                       UE EGTP NRUP RLC Tx Pkts statistics
+---------------------------------------------------------------------------------------------
+UE-ID    RB-ID    DL-TX-PKT    PROC-FAILED    DROP-EGTP-RESET    NRUP-TX-RCV    DROP-RESET    DROP-RAB-PROC-FAIL    DROP-RAB-NOT-FOUND    NRUP-DECODE-FAIL    RLC-ENQ-FAIL    NRUP-SUCC-PROC        RLC-SDU-RCVD    DROP-SDU-QUEUE-FULL    SDU-ADDED-TO-QUEUE   SDU-DROPPED    SDU-SENT-TO-UE    
+
+17575    1        0              0             0                    0                0             0                     0                     0                   0               0                     791             0                      1                    0              0                 
+17692    1        0              0             0                    0                0             0                     0                     0                   0               0                     502419          0                      1                    0              0                 
+17693    1        0              0             0                    0                0             0                     0                     0                   0               0                     592795          0                      1                    0              0                 
+17707    1        0              0             0                    0                0             0                     0                     0                   0               0                     572240          0                      1                    0              0                 
+17723    1        0              0             0                    0                0             0                     0                     0                   0               0                     365499          0                      1                    0              0                 
+17752    1        0              0             0                    0                0             0                     0                     0                   0               0                     76412           0                      1                    0              0                 
+
+
+MEMORY-STATS:PERIODIC
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Pool ID                : 0
+Pool Mem Block Details : 
+------------------------------------------------------------------------------------------------------------------------------------------------
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+80        5000               140           Heap       6                8                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        8207         
+   3    WORKER_0_2        8792         
+   4    WORKER_1_1        6286         
+   5    PHY_RECV          2764         
+   6    CLI_AGENT         0            
+   8    UDP_RX            3816         
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   135              0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+2048      500                400           Heap       6                8                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              498          
+   2    WORKER_0_1        442          
+   3    WORKER_0_2        328          
+   4    WORKER_1_1        912          
+   5    PHY_RECV          767          
+   6    CLI_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   53               0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+2288      50                 20            Heap       2                3                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        0            
+   4    WORKER_1_1        86           
+   5    PHY_RECV          14           
+   6    CLI_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   0                0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+4096      250                400           Heap       2                3                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        0            
+   4    WORKER_1_1        424          
+   5    PHY_RECV          74           
+   6    CLI_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   2                0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+10240     50                 4000          Heap       87               89               0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        97           
+   3    WORKER_0_2        94           
+   4    WORKER_1_1        66           
+   5    PHY_RECV          34           
+   6    CLI_AGENT         0            
+   8    UDP_RX            8            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   4051             0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+14528     50                 100           Heap       82               83               0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        0            
+   4    WORKER_1_1        66           
+   5    PHY_RECV          34           
+   6    CLI_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   4000             0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+20480     50                 20            Heap       0                0                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        0            
+   4    WORKER_1_1        0            
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   0                0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+32768     25                 40            Heap       0                0                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        0            
+   4    WORKER_1_1        0            
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   0                0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+1024000   20                 100           Heap       1                1                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        0            
+   4    WORKER_1_1        18           
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   2                0              0              0              0              
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Pool ID                : 1
+Pool Mem Block Details : 
+------------------------------------------------------------------------------------------------------------------------------------------------
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+576       10240              84            Heap       10               13               0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               10239        
+   1    MAIN              10161        
+   2    WORKER_0_1        12696        
+   3    WORKER_0_2        19328        
+   4    WORKER_1_1        11035        
+   5    PHY_RECV          8378         
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         10241        
+   8    UDP_RX            10239        
+   9    SCTP              5332         
+   10   TMR_MGR           2419         
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   2332             0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+2368      10240              32            Heap       6                6                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              10239        
+   2    WORKER_0_1        9485         
+   3    WORKER_0_2        9630         
+   4    WORKER_1_1        11313        
+   5    PHY_RECV          10200        
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         10234        
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   339              0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+8512      1024               24            Heap       5                5                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        804          
+   3    WORKER_0_2        1001         
+   4    WORKER_1_1        1604         
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         1022         
+   8    UDP_RX            0            
+   9    SCTP              619          
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   70               0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+80000     1024               12            Heap       5                6                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              1023         
+   2    WORKER_0_1        529          
+   3    WORKER_0_2        658          
+   4    WORKER_1_1        1799         
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         1022         
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   89               0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+127860    10                 100           Heap       81               82               0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              2            
+   2    WORKER_0_1        8            
+   3    WORKER_0_2        9            
+   4    WORKER_1_1        8            
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   783              0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+350000    10                 100           Heap       8                9                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        13           
+   3    WORKER_0_2        16           
+   4    WORKER_1_1        11           
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   40               0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+5263616   5                  100           Heap       2                2                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        2            
+   4    WORKER_1_1        0            
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         4            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   4                0              0              0              0              
+
+ChunkSize MaxChunksPerBlock  ConfigBlocks  MemSource  AllocatedBlocks  PeakUsageBlocks  WaterMarkCrossd  GlobalAccess(Alloc/Free) 
+6145280   1                  5             Heap       1                1                0                0 / 0
+
+   Idx  ThreadName        AvailableChunks
+   0    APP               0            
+   1    MAIN              0            
+   2    WORKER_0_1        0            
+   3    WORKER_0_2        0            
+   4    WORKER_1_1        0            
+   5    PHY_RECV          0            
+   6    CLI_AGENT         0            
+   7    OAM_AGENT         0            
+   8    UDP_RX            0            
+   9    SCTP              0            
+   10   TMR_MGR           0            
+
+   AllocatedChunks  Req.Sz <= 25%  Req.Sz <= 50%  Req.Sz <= 75%  Req.Sz <= 100% 
+   1                0              0              0              0              
+
+------------------------------------------------------------------------------------------------------------------------------------------------
